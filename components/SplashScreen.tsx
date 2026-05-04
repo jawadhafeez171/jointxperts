@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const ANIM_MS = 8000;  // exact one-cycle duration of loader.webp
+const ANIM_MS = 4000;  // one-cycle duration of loader.webp at 2× speed
 const FADE_MS = 600;
 
 export default function SplashScreen() {
