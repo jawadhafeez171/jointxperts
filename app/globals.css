@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
+  --navy: #0f2d5e;
+  --navy-dark: #091d3d;
+  --navy-light: #1a4a8a;
+  --green: #2e8b57;
+  --green-light: #3aad6e;
+  --green-pale: #e8f5ee;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a2e;
 }
 
 @theme inline {
@@ -12,15 +18,87 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #2e8b57;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #0f2d5e 0%, #2e8b57 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-bg {
+  background: linear-gradient(135deg, #091d3d 0%, #0f2d5e 40%, #1a3a6b 70%, #0f3d2e 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+}
+
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-divider {
+  background: linear-gradient(90deg, transparent, #2e8b57, transparent);
+  height: 2px;
+}
+
+@keyframes loading-bar {
+  0%   { transform: translateX(-140%); }
+  100% { transform: translateX(350%); }
+}
+
+.loading-bar {
+  animation: loading-bar 1.4s ease-in-out infinite;
 }
