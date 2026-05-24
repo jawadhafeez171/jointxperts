@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Info, Stethoscope, Phone } from "lucide-react";
+import Image from "next/image";
 
 const navItems = [
   { href: "/", icon: Home, label: "Home" },
@@ -44,19 +45,18 @@ export default function BottomNav() {
           );
         })}
 
-        {/* WhatsApp centre button */}
-        <div className="flex flex-col items-center justify-end pb-3 flex-1">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp"
-            className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg shadow-green-500/40 hover:bg-[#1ebe5d] active:scale-95 transition-all duration-200 -translate-y-3"
-          >
-            <WhatsAppIcon />
-          </a>
-          <span className="text-[10px] font-medium text-gray-400 -mt-1">WhatsApp</span>
-        </div>
+        {/* Book Consultation centre button */}
+        <Link
+          href="/contact"
+          className="flex flex-col items-center gap-1 -translate-y-4"
+        >
+          <div className="relative w-12 h-12 rounded-full overflow-hidden">
+            <Image src="/photo2.jpeg" alt="Book Consultation" fill className="object-cover" />
+          </div>
+          <span className="text-blue-900 text-xs whitespace-nowrap text-center">Book<br/>Consultation</span>
+        </Link>
+
+
 
         {navItems.slice(2).map(({ href, icon: Icon, label }) => {
           const active = pathname === href;

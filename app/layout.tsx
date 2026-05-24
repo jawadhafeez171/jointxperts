@@ -28,7 +28,7 @@ export default function RootLayout({
         <SplashScreen />
         <Navbar />
         <main className="flex-1 pb-16 lg:pb-0">{children}</main>
-        <FloatingBookButton />
+        <div className="hidden md:block"><FloatingBookButton /></div>
         <Footer />
         <BottomNav />
       </body>
