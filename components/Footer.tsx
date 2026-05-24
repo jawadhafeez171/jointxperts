@@ -76,7 +76,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="block relative w-48 h-14 mb-5 bg-white rounded-xl p-2">
-              <Image src="/logo.jpeg" alt="JointXperts" fill className="object-contain p-1" />
+              <Image src="/logo.png" alt="JointXperts" fill className="object-contain p-1" />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               Expert care for every joint. Led by Dr. Syed Parveez Ahmed, MBBS MS(Ortho) FRGUHS(Arthroplasty), we are committed to restoring your mobility and quality of life.

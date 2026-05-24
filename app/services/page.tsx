@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Services from "@/components/Services";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export const metadata: Metadata = {
   title: "Services | JointXperts — Orthopedic & Joint Replacement",
@@ -10,7 +12,9 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="pt-20">
-      <Services />
+      <Suspense fallback={<LoadingScreen />}>
+        <Services />
+      </Suspense>
     </div>
   );
 }

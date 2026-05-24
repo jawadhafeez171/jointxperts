@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import SplashScreen from "@/components/SplashScreen";
+import FloatingBookButton from "@/components/FloatingBookButton";
 import "./globals.css";
 
 const geist = Geist({
@@ -22,11 +23,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} h-full scroll-smooth antialiased`}>
+    <html lang="en" className={`${geist.variable} h-full scroll-smooth antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
         <SplashScreen />
         <Navbar />
         <main className="flex-1 pb-16 lg:pb-0">{children}</main>
+        <FloatingBookButton />
         <Footer />
         <BottomNav />
       </body>

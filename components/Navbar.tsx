@@ -9,6 +9,7 @@ import { Menu, X, Phone } from "lucide-react";
 const navLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/anatomy", label: "Anatomy" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
@@ -39,9 +40,13 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-44 h-12">
+          <div
+            className={`relative w-52 h-14 transition-all duration-500 ${
+              transparent ? "bg-white/90 rounded-xl px-3 py-1 backdrop-blur-sm" : ""
+            }`}
+          >
             <Image
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="JointXperts Logo"
               fill
               className="object-contain"

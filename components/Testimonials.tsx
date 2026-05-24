@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
@@ -58,16 +59,23 @@ function Stars({ count }: { count: number }) {
 
 export default function Testimonials() {
   const [active, setActive] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: false, margin: "-80px" });
 
   const prev = () => setActive((a) => (a === 0 ? testimonials.length - 1 : a - 1));
   const next = () => setActive((a) => (a === testimonials.length - 1 ? 0 : a + 1));
   const t = testimonials[active];
 
   return (
-    <section id="testimonials" className="py-24 bg-[#f8fafc]">
+    <section id="testimonials" className="py-24 bg-[#f8fafc]" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-[#2e8b57]" />
             <span className="text-[#2e8b57] font-semibold text-sm uppercase tracking-widest">Patient Stories</span>
@@ -79,11 +87,16 @@ export default function Testimonials() {
           <p className="text-gray-500 max-w-xl mx-auto">
             Real stories from patients who regained their mobility and quality of life.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-8 items-center">
-          {/* Left — all patient names */}
-          <div className="lg:col-span-1 hidden lg:flex flex-col gap-3">
+          {/* Left — patient list */}
+          <motion.div
+            className="lg:col-span-1 hidden lg:flex flex-col gap-3"
+            initial={{ opacity: 0, x: -30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
             {testimonials.map((t, i) => (
               <button
                 key={i}
@@ -102,10 +115,15 @@ export default function Testimonials() {
                 </div>
               </button>
             ))}
-          </div>
+          </motion.div>
 
           {/* Right — featured testimonial */}
-          <div className="lg:col-span-4 relative">
+          <motion.div
+            className="lg:col-span-4 relative"
+            initial={{ opacity: 0, x: 30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-xl shadow-gray-100 border border-gray-100">
               {/* Quote icon */}
               <Quote className="w-10 h-10 text-[#2e8b57]/20 mb-6" />
@@ -154,7 +172,7 @@ export default function Testimonials() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
