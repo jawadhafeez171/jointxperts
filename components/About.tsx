@@ -54,8 +54,8 @@ export default function About() {
             {/* Photo */}
             <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl shadow-[#0f2d5e]/20">
               <Image
-                src="/photo2.jpeg"
-                alt="Dr. Syed Parveez Ahmed — Consultant Orthopedic Surgeon"
+                src="/photo2.webp"
+                alt="Dr. Syed Parveez Ahmed performing joint surgery"
                 fill
                 className="object-cover object-top"
                 priority

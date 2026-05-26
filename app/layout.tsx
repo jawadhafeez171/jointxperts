@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import SplashScreen from "@/components/SplashScreen";
 import FloatingBookButton from "@/components/FloatingBookButton";
+import { Suspense } from "react";
+import BookingModal from "@/components/BookingModal";
 import "./globals.css";
 
 const geist = Geist({
@@ -31,6 +33,9 @@ export default function RootLayout({
         <div className="hidden md:block"><FloatingBookButton /></div>
         <Footer />
         <BottomNav />
+        <Suspense fallback={null}>
+          <BookingModal />
+        </Suspense>
       </body>
     </html>
   );

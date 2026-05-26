@@ -14,12 +14,12 @@ export default function FloatingBookButton() {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      <Link href="/contact" className="group flex items-center gap-3 relative bg-white/95 backdrop-blur-sm p-1.5 pr-5 rounded-full shadow-lg shadow-blue-900/20 border border-blue-100 hover:shadow-blue-900/30 hover:border-blue-200 transition-all duration-300">
+      <Link href="?booking=true" scroll={false} className="group flex items-center gap-3 relative bg-white/95 backdrop-blur-sm p-1.5 pr-5 rounded-full shadow-lg shadow-blue-900/20 border border-blue-100 hover:shadow-blue-900/30 hover:border-blue-200 transition-all duration-300">
         
         {/* Button Container / Image */}
         <div className="relative flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
           <Image
-            src="/photo2.jpeg"
+            src="/photo2.webp"
             alt="Book Appointment"
             fill
             className="object-cover"

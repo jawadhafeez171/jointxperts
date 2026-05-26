@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Award, Users } from "lucide-react";
+import Link from "next/link";
 
 const stats = [
   { icon: Users, value: "5000+", label: "Patients Treated" },
@@ -175,13 +176,14 @@ export default function Hero() {
               custom={0.55}
               className="flex flex-wrap gap-4"
             >
-              <a
-                href="/contact"
+              <Link
+                href="?booking=true"
+                scroll={false}
                 className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#2e8b57] text-white font-semibold text-base hover:bg-[#1f6b3d] transition-all duration-300 hover:shadow-2xl hover:shadow-green-900/40 hover:-translate-y-0.5"
               >
                 Book Appointment
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
               <a
                 href="/services"
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all duration-300"

@@ -10,7 +10,7 @@ import {
 } from "framer-motion";
 
 const TAGLINE = "Expert Care for Every Joint";
-const DURATION_MS = 2600; // how long the splash stays visible
+const DURATION_MS = 2800; // slightly longer to appreciate the logo
 
 export default function SplashScreen() {
   const [visible, setVisible] = useState(true);
@@ -34,26 +34,24 @@ export default function SplashScreen() {
       {visible && (
         <motion.div
           key="splash"
-          className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#091d3d] gap-10"
-          // Exit: slide the whole overlay upward like a curtain
-          exit={{ y: "-100%", transition: { duration: 0.72, ease: [0.76, 0, 0.24, 1] } }}
+          className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-white gap-12"
+          // Exit: Fade out gently instead of slide for a cleaner transition from light to light
+          exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
         >
-          {/* Subtle radial glow behind logo */}
+          {/* Subtle radial glow to give depth to the white background */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-[480px] h-[480px] rounded-full bg-[#2e8b57]/10 blur-[100px]" />
+            <div className="w-[600px] h-[600px] rounded-full bg-[#f0faf5] blur-[120px]" />
           </div>
 
-          {/* Logo */}
+          {/* Logo Container (proportional to 1592x988) */}
           <motion.div
-            className="relative w-64 h-16"
-            initial={{ opacity: 0, scale: 0.85, y: 12 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-[340px] h-[210px] md:w-[420px] md:h-[260px]"
+            initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* White pill background so the navy logo shows on dark splash */}
-            <div className="absolute inset-0 bg-white/90 rounded-2xl" />
             <Image
-              src="/logo.png"
+              src="/logo2.webp"
               alt="JointXperts"
               fill
               className="object-contain relative z-10"
@@ -61,40 +59,42 @@ export default function SplashScreen() {
             />
           </motion.div>
 
-          {/* Typewriter tagline */}
-          <motion.p
-            className="text-white/70 text-sm font-mono tracking-[0.18em] uppercase overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.45, duration: 0.4 }}
-          >
-            {TAGLINE.split("").map((char, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  delay: 0.5 + i * 0.038,
-                  duration: 0.01,
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.p>
+          <div className="flex flex-col items-center gap-6 relative z-10">
+            {/* Typewriter tagline */}
+            <motion.p
+              className="text-[#0f2d5e] text-sm md:text-base font-semibold tracking-[0.2em] uppercase overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.4 }}
+            >
+              {TAGLINE.split("").map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 0.7 + i * 0.04,
+                    duration: 0.2,
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </motion.p>
 
-          {/* Progress bar */}
-          <motion.div
-            className="w-56 h-[3px] rounded-full bg-white/10 overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.4 }}
-          >
+            {/* Premium Progress bar */}
             <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-[#2e8b57] to-[#3aad6e]"
-              style={{ width: barWidth }}
-            />
-          </motion.div>
+              className="w-64 h-1 rounded-full bg-gray-100 overflow-hidden shadow-inner"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              <motion.div
+                className="h-full rounded-full bg-gradient-to-r from-[#0f2d5e] to-[#2e8b57]"
+                style={{ width: barWidth }}
+              />
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

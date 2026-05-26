@@ -15,7 +15,8 @@ const links: Record<string, { label: string; href: string }[]> = {
     { label: "About Dr. Ahmed", href: "/about" },
     { label: "Why JointXperts", href: "/about" },
     { label: "Patient Testimonials", href: "/testimonials" },
-    { label: "Book Appointment", href: "/contact" },
+    { label: "Book Appointment", href: "?booking=true" },
+    { label: "Orthopedic Blog", href: "/blog" },
     { label: "Contact Us", href: "/contact" },
   ],
 };
@@ -76,7 +77,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="block relative w-48 h-14 mb-5 bg-white rounded-xl p-2">
-              <Image src="/logo.png" alt="JointXperts" fill className="object-contain p-1" />
+              <Image src="/logo.webp" alt="JointXperts" fill className="object-contain p-1" />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               Expert care for every joint. Led by Dr. Syed Parveez Ahmed, MBBS MS(Ortho) FRGUHS(Arthroplasty), we are committed to restoring your mobility and quality of life.

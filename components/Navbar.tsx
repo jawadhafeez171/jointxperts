@@ -9,7 +9,7 @@ import { Menu, X, Phone } from "lucide-react";
 const navLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/anatomy", label: "Anatomy" },
+  { href: "/blog", label: "Blog" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
@@ -46,7 +46,7 @@ export default function Navbar() {
             }`}
           >
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="JointXperts Logo"
               fill
               className="object-contain"
@@ -87,7 +87,8 @@ export default function Navbar() {
             Call Now
           </a>
           <Link
-            href="/contact"
+            href="?booking=true"
+            scroll={false}
             className="px-5 py-2.5 rounded-full bg-[#2e8b57] text-white text-sm font-semibold hover:bg-[#1f6b3d] transition-all duration-200 hover:shadow-lg hover:shadow-green-900/30"
           >
             Book Appointment
@@ -129,7 +130,8 @@ export default function Navbar() {
             );
           })}
           <Link
-            href="/contact"
+            href="?booking=true"
+            scroll={false}
             onClick={() => setOpen(false)}
             className="mt-2 px-5 py-3 rounded-full bg-[#2e8b57] text-white text-center font-semibold hover:bg-[#1f6b3d] transition-colors"
           >

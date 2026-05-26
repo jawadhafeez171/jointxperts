@@ -1,7 +1,5 @@
 "use client";
 
-import JointAnatomyMap from '@/components/JointAnatomyMap';
-
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -232,8 +230,6 @@ export default function Services() {
 
         {/* Grid layout with Morphing layoutId Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <JointAnatomyMap />
-
 {services.map((s) => (
             <motion.div
               layoutId={`card-container-${s.id}`}
