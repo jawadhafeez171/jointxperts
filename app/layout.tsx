@@ -21,6 +21,12 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.ico" },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -29,7 +35,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <SplashScreen />
         <Navbar />
-        <main className="flex-1 pb-16 lg:pb-0">{children}</main>
+        <main className="flex-1 pb-20 lg:pb-0" style={{ paddingBottom: 'calc(5rem + env(safe-area-inset-bottom))' }}>{children}</main>
         <div className="hidden md:block"><FloatingBookButton /></div>
         <Footer />
         <BottomNav />

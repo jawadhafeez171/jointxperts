@@ -101,9 +101,9 @@ export default function Hero() {
       {/* Particle canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />
 
-      {/* Decorative circles */}
-      <div className="absolute top-1/4 right-10 w-72 h-72 rounded-full bg-[#2e8b57]/10 blur-3xl" />
-      <div className="absolute bottom-1/4 left-10 w-96 h-96 rounded-full bg-[#1a4a8a]/20 blur-3xl" />
+      {/* Decorative circles — contained so they don't cause horizontal scroll */}
+      <div className="absolute top-1/4 right-0 w-72 h-72 rounded-full bg-[#2e8b57]/10 blur-3xl translate-x-1/2" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 rounded-full bg-[#1a4a8a]/20 blur-3xl -translate-x-1/2" />
 
       {/* Grid overlay */}
       <div
