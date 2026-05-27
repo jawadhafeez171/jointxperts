@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
@@ -14,6 +15,7 @@ const testimonials = [
     rating: 5,
     initials: "RK",
     color: "bg-[#0f2d5e]",
+    videoUrl: "/testimonials/patient_testimonial.webm",
   },
   {
     name: "Fatima Begum",
@@ -115,6 +117,23 @@ export default function Testimonials() {
                 </div>
               </button>
             ))}
+
+            {/* Consultation Banner */}
+            <a href="/contact" className="mt-4 relative rounded-2xl overflow-hidden block group shadow-sm hover:shadow-md transition-all">
+              <div className="h-32 w-full relative">
+                <Image 
+                  src="/consult.webp" 
+                  alt="Book Consultation" 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f2d5e]/80 to-[#0f2d5e]/20" />
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <span className="text-white font-bold text-sm">Need a Consultation?</span>
+                  <span className="text-white/80 text-xs mt-1">Book your appointment today</span>
+                </div>
+              </div>
+            </a>
           </motion.div>
 
           {/* Right — featured testimonial */}
@@ -127,6 +146,17 @@ export default function Testimonials() {
             <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-xl shadow-gray-100 border border-gray-100">
               {/* Quote icon */}
               <Quote className="w-10 h-10 text-[#2e8b57]/20 mb-6" />
+
+              {t.videoUrl && (
+                <div className="relative w-full rounded-2xl overflow-hidden mb-6 bg-black shadow-lg flex justify-center">
+                  <video 
+                    src={t.videoUrl} 
+                    controls 
+                    className="w-full h-auto max-h-[400px] object-contain bg-black"
+                    poster="/testimonials/patient_testimonial_poster.webp"
+                  />
+                </div>
+              )}
 
               <p className="text-gray-700 text-lg leading-relaxed mb-8 min-h-[120px]">
                 "{t.quote}"

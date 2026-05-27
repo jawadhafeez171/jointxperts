@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
 
 const info = [
@@ -88,11 +89,17 @@ export default function Contact() {
               </a>
             ))}
 
-            {/* Map placeholder */}
-            <div className="rounded-2xl overflow-hidden border border-gray-100 h-40 bg-gradient-to-br from-[#e8f5ee] to-[#eef2ff] flex items-center justify-center">
-              <div className="text-center text-gray-400">
-                <MapPin className="w-8 h-8 mx-auto mb-1 text-[#2e8b57]" />
-                <span className="text-sm">Clinic Location</span>
+            {/* Consultation Image */}
+            <div className="rounded-2xl overflow-hidden border border-gray-100 h-64 relative">
+              <Image 
+                src="/consult.webp" 
+                alt="Orthopedic Consultation" 
+                fill 
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f2d5e]/70 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-bold text-lg leading-tight">Your Journey to Pain-Free Living Starts Here</p>
               </div>
             </div>
           </div>

@@ -3,13 +3,12 @@ import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const links: Record<string, { label: string; href: string }[]> = {
-  Services: [
-    { label: "Joint Care", href: "/services" },
-    { label: "Spine Care", href: "/services" },
-    { label: "Hip Replacement", href: "/services" },
-    { label: "Knee Replacement", href: "/services" },
-    { label: "Pain Relief", href: "/services" },
-    { label: "Mobility Restoration", href: "/services" },
+  Conditions: [
+    { label: "Shoulder Issues", href: "/conditions/shoulder" },
+    { label: "Knee Problems", href: "/conditions/knee" },
+    { label: "Spine & Back Care", href: "/conditions/spine" },
+    { label: "Fracture Management", href: "/conditions/fracture" },
+    { label: "Physiotherapy", href: "/conditions/physiotherapy" },
   ],
   "Quick Links": [
     { label: "About Dr. Ahmed", href: "/about" },

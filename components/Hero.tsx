@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Award, Users } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const stats = [
   { icon: Users, value: "5000+", label: "Patients Treated" },
@@ -137,9 +138,8 @@ export default function Hero() {
               custom={0.22}
               className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6"
             >
-              Expert Care{" "}
-              <span className="text-[#3aad6e]">for Every</span>{" "}
-              Joint
+              An Orthopedic Surgeon Who{" "}
+              <span className="text-[#3aad6e]">Truly Cares</span>
             </motion.h1>
 
             <motion.p
@@ -199,71 +199,78 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0.3}
-            className="relative hidden lg:flex justify-center items-center"
+            className="relative hidden lg:flex justify-center items-center w-full"
           >
-            {/* Large decorative circle */}
-            <div className="relative w-80 h-80">
-              <div className="absolute inset-0 rounded-full border-2 border-[#2e8b57]/30 animate-[spin_20s_linear_infinite]" />
-              <div className="absolute inset-6 rounded-full border border-white/10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-7xl font-bold text-white leading-none">10+</div>
-                  <div className="text-[#3aad6e] font-semibold mt-1">Years of Excellence</div>
-                  <div className="text-white/50 text-sm mt-1">in Orthopedic Surgery</div>
-                </div>
+            <div className="relative w-full max-w-lg aspect-square mt-10 group">
+              {/* Back card 1 */}
+              <div className="absolute inset-4 bg-[#2e8b57]/20 rounded-[3rem] rotate-6 border border-[#2e8b57]/30 backdrop-blur-sm transition-transform duration-700 group-hover:rotate-12" />
+              
+              {/* Back card 2 */}
+              <div className="absolute inset-4 bg-[#1a4a8a]/40 rounded-[3rem] -rotate-3 border border-[#1a4a8a]/50 backdrop-blur-md transition-transform duration-700 group-hover:-rotate-6" />
+              
+              {/* Main Image */}
+              <div className="absolute inset-0 rounded-[3rem] overflow-hidden border border-white/20 shadow-2xl z-10 bg-[#0a1e3f]">
+                <Image 
+                  src="/photo1.webp" 
+                  alt="JointXperts Orthopedic Care" 
+                  fill 
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#0a1e3f]/80 via-transparent to-transparent opacity-80" />
               </div>
 
-              {/* Orbiting dots */}
-              {[0, 60, 120, 180, 240, 300].map((deg) => (
-                <div
-                  key={deg}
-                  className="absolute w-3 h-3 rounded-full bg-[#2e8b57]"
-                  style={{
-                    top: "50%",
-                    left: "50%",
-                    transform: `rotate(${deg}deg) translateX(155px) rotate(-${deg}deg)`,
-                    marginTop: "-6px",
-                    marginLeft: "-6px",
-                  }}
-                />
-              ))}
+              {/* Floating stat cards — staggered */}
+              <motion.div
+                variants={fadeIn}
+                initial="hidden"
+                animate="visible"
+                custom={0.65}
+                className="absolute -left-6 top-10 glass-card rounded-2xl px-6 py-5 float-animation z-20 shadow-2xl"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-[#3aad6e]/20 flex items-center justify-center">
+                    <Users className="w-6 h-6 text-[#3aad6e]" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-white leading-none">5000+</div>
+                    <div className="text-white/60 text-xs mt-1">Happy Patients</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                variants={fadeIn}
+                initial="hidden"
+                animate="visible"
+                custom={0.8}
+                className="absolute -right-8 bottom-16 glass-card rounded-2xl px-6 py-5 float-animation z-20 shadow-2xl"
+                style={{ animationDelay: "1.5s" }}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-[#3aad6e]" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-white leading-none">98%</div>
+                    <div className="text-white/60 text-xs mt-1">Success Rate</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                variants={fadeIn}
+                initial="hidden"
+                animate="visible"
+                custom={0.72}
+                className="absolute right-4 -top-6 glass-card rounded-2xl px-5 py-4 float-animation z-20 shadow-2xl"
+                style={{ animationDelay: "0.8s" }}
+              >
+                <div className="text-2xl font-bold text-[#3aad6e] text-center">4.9★</div>
+                <div className="text-white/60 text-xs mt-0.5 text-center">Patient Rating</div>
+              </motion.div>
             </div>
-
-            {/* Floating stat cards — staggered */}
-            <motion.div
-              variants={fadeIn}
-              initial="hidden"
-              animate="visible"
-              custom={0.65}
-              className="absolute -left-8 top-8 glass-card rounded-2xl px-5 py-4 float-animation"
-            >
-              <div className="text-2xl font-bold text-white">5000+</div>
-              <div className="text-white/60 text-xs mt-0.5">Happy Patients</div>
-            </motion.div>
-
-            <motion.div
-              variants={fadeIn}
-              initial="hidden"
-              animate="visible"
-              custom={0.8}
-              className="absolute -right-4 bottom-12 glass-card rounded-2xl px-5 py-4 float-animation"
-              style={{ animationDelay: "1.5s" }}
-            >
-              <div className="text-2xl font-bold text-[#3aad6e]">98%</div>
-              <div className="text-white/60 text-xs mt-0.5">Success Rate</div>
-            </motion.div>
-
-            <motion.div
-              variants={fadeIn}
-              initial="hidden"
-              animate="visible"
-              custom={0.72}
-              className="absolute right-8 -top-4 glass-card rounded-2xl px-5 py-4 float-animation"
-              style={{ animationDelay: "0.8s" }}
-            >
-              <div className="text-2xl font-bold text-white">4.9★</div>
-              <div className="text-white/60 text-xs mt-0.5">Patient Rating</div>
-            </motion.div>
           </motion.div>
         </div>
 
