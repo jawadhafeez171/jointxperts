@@ -159,7 +159,13 @@ export default function Navbar() {
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col gap-3 p-6 pt-24 border-l border-gray-100 h-full items-end text-right">
+        <div className="flex flex-col gap-3 p-6 pt-6 border-l border-gray-100 h-full items-end text-right">
+          <div className="flex justify-between w-full mb-4">
+            <span className="text-lg font-bold text-[#0f2d5e]">Menu</span>
+            <button onClick={() => setOpen(false)} className="text-gray-600 hover:text-gray-800">
+              <X className="w-6 h-6" />
+            </button>
+          </div>
           {navLinks.map((link) => (
   link.isDropdown ? (
     <div key={link.label} className="flex flex-col border-b border-gray-100">
