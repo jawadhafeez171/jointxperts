@@ -16,7 +16,7 @@ export default function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-[0_-8px_30px_rgba(0,0,0,0.06)]">
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-[60] w-full bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-[0_-8px_30px_rgba(0,0,0,0.06)]">
       <div className="flex items-center justify-between px-4 h-[72px] w-full">
         {/* Left items */}
         <div className="flex items-center justify-around w-[40%]">

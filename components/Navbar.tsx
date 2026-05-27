@@ -155,7 +155,7 @@ export default function Navbar() {
 
       {/* Mobile menu – right aligned sliding panel */}
       <div
-        className={`lg:hidden fixed inset-y-0 right-0 w-64 bg-white/95 backdrop-blur-md overflow-y-auto transform transition-transform duration-300 z-40 ${
+        className={`lg:hidden fixed top-0 bottom-[72px] right-0 w-64 bg-white/95 backdrop-blur-md overflow-y-auto transform transition-transform duration-300 z-40 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
