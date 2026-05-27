@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { Bone, Activity, RotateCcw, Brain, ArrowRight, Users, Award, Shield, Star, Zap } from "lucide-react";
 
@@ -12,60 +13,83 @@ const stats = [
   { icon: Star, value: "4.9★", label: "Patient Rating" },
 ];
 
-// Single unified services list — no duplicates
+// Single unified services list with rich image coverage
 const services = [
   {
     title: "Total Knee Replacement",
     desc: "Advanced knee replacement surgery for severe arthritis and chronic knee pain.",
     icon: RotateCcw,
     accent: "#0f2d5e",
+    image: "/services/service_knee_replacement.png",
   },
   {
     title: "Total Hip Replacement",
     desc: "Effective treatment for hip arthritis, avascular necrosis, and hip joint damage.",
     icon: Activity,
     accent: "#2e8b57",
+    image: "/services/service_hip_replacement.png",
   },
   {
     title: "Arthroscopy",
     desc: "Minimally invasive keyhole surgery for sports injuries and ligament tears.",
     icon: Bone,
     accent: "#1a4a8a",
+    image: "/services/service_arthroscopy.png",
   },
   {
     title: "Fracture Management",
     desc: "Comprehensive care for simple and complex fractures with modern fixation techniques.",
     icon: Shield,
     accent: "#0f2d5e",
+    image: "/services/service_fracture.png",
   },
   {
     title: "Spine Injury Care",
     desc: "Evaluation and management of spine-related pain and injuries.",
     icon: Brain,
     accent: "#2e8b57",
+    image: "/services/service_spine_care.png",
   },
   {
     title: "Joint Care",
     desc: "Comprehensive diagnosis and personalised treatment for arthritis, joint inflammation, and degenerative joint disease.",
     icon: Zap,
     accent: "#1a4a8a",
+    image: "/services/service_joint_care.png",
   },
   {
     title: "Spine Care",
     desc: "Advanced management of disc herniation, spinal stenosis, scoliosis, and chronic back pain.",
     icon: Activity,
     accent: "#0f2d5e",
+    image: "/services/service_spine_general.png",
+  },
+  {
+    title: "Knee Pain & Arthritis",
+    desc: "Comprehensive non-surgical and preventive treatment for degenerative knee wear, chronic joint stiffness, and osteoarthritis.",
+    icon: Bone,
+    accent: "#2e8b57",
+    image: "/services/service_joint_care.png",
+  },
+  {
+    title: "Ligament Injuries (ACL/PCL)",
+    desc: "State-of-the-art keyhole ligament reconstruction and customized athletic rehabilitation for sports joint injuries.",
+    icon: RotateCcw,
+    accent: "#1a4a8a",
+    image: "/blogs/blog_acl_recovery.png",
   },
 ];
 
 const serviceIdMap: Record<string, string> = {
   "Total Knee Replacement": "knee-replacement",
   "Total Hip Replacement": "hip-replacement",
-  "Arthroscopy": "joint-care",
-  "Fracture Management": "joint-care",
-  "Spine Injury Care": "spine-care",
+  "Arthroscopy": "arthroscopy",
+  "Fracture Management": "fracture-management",
+  "Spine Injury Care": "spine-injury-care",
   "Joint Care": "joint-care",
   "Spine Care": "spine-care",
+  "Knee Pain & Arthritis": "knee-pain-arthritis",
+  "Ligament Injuries (ACL/PCL)": "ligament-injuries",
 };
 
 const conditions = [
@@ -180,23 +204,52 @@ export default function HomeFeatures() {
                   <motion.div
                     variants={fadeUp}
                     custom={0}
-                    className="group flex gap-5 p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-xl hover:shadow-[#0f2d5e]/8 transition-all duration-300 h-full cursor-pointer"
+                    className="group relative h-96 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-[#0f2d5e]/12 transition-all duration-500 cursor-pointer border border-gray-100 flex flex-col justify-end"
                   >
+                    {/* Background Cover Image */}
+                    {s.image && (
+                      <Image
+                        src={s.image}
+                        alt={s.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700 z-0"
+                      />
+                    )}
+                    
+                    {/* Multi-layered visual gradient overlay for text legibility and rich aesthetic */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f2d5e] via-[#0f2d5e]/40 to-transparent z-10 transition-all duration-500 group-hover:from-[#0f2d5e]/95 group-hover:via-[#0f2d5e]/50" />
+
+                    {/* Left active colored accent indicator line */}
                     <div
-                      className="w-1 rounded-full flex-shrink-0"
+                      className="absolute left-0 bottom-0 top-0 w-1.5 transition-all duration-500 scale-y-0 group-hover:scale-y-100 z-30 origin-bottom"
                       style={{ backgroundColor: s.accent }}
                     />
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div
-                          className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                          style={{ backgroundColor: `${s.accent}18` }}
-                        >
-                          <s.icon className="w-4 h-4" style={{ color: s.accent }} />
-                        </div>
-                        <h3 className="text-base font-bold text-[#0f2d5e]">{s.title}</h3>
+                    
+                    {/* Floating glassmorphic circular icon badge */}
+                    <div 
+                      className="absolute top-5 right-5 z-20 w-12 h-12 rounded-2xl flex items-center justify-center backdrop-blur-md shadow-lg border border-white/20 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110"
+                      style={{ backgroundColor: `${s.accent}d0` }}
+                    >
+                      <s.icon className="w-5 h-5 text-white" />
+                    </div>
+
+                    {/* Card Content Area (at bottom on top of gradient) */}
+                    <div className="relative z-20 p-6 md:p-8 flex flex-col justify-end text-white transition-all duration-500 translate-y-6 group-hover:translate-y-0">
+                      <h3 className="text-xl font-bold mb-2 text-white group-hover:text-emerald-400 transition-colors drop-shadow-sm">
+                        {s.title}
+                      </h3>
+                      
+                      {/* Description with reveal effect */}
+                      <p className="text-white/85 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 max-h-0 group-hover:max-h-24 overflow-hidden">
+                        {s.desc}
+                      </p>
+                      
+                      {/* Arrow link indicator */}
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        Learn More
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </div>
-                      <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                     </div>
                   </motion.div>
                 </Link>

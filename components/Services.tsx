@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   Bone,
   Activity,
@@ -13,7 +14,8 @@ import {
   X,
   Clock,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  Shield
 } from "lucide-react";
 
 const services = [
@@ -26,6 +28,8 @@ const services = [
     color: "from-[#0f2d5e] to-[#1a4a8a]",
     lightColor: "bg-[#eef2ff]",
     iconColor: "text-[#0f2d5e]",
+    accent: "#0f2d5e",
+    image: "/services/service_joint_care.png",
     tag: "Speciality",
     recoveryTime: "1 - 2 Weeks (Flare-ups) / Ongoing management",
     symptoms: [
@@ -51,6 +55,8 @@ const services = [
     color: "from-[#2e8b57] to-[#1f6b3d]",
     lightColor: "bg-[#e8f5ee]",
     iconColor: "text-[#2e8b57]",
+    accent: "#2e8b57",
+    image: "/services/service_spine_general.png",
     tag: "Advanced",
     recoveryTime: "2 - 6 Weeks (Conservative) / 6 - 12 Weeks (Surgical)",
     symptoms: [
@@ -76,6 +82,8 @@ const services = [
     color: "from-[#0f2d5e] to-[#2e8b57]",
     lightColor: "bg-[#f0f7ff]",
     iconColor: "text-[#0f2d5e]",
+    accent: "#0f2d5e",
+    image: "/services/service_hip_replacement.png",
     tag: "Surgical",
     recoveryTime: "6 - 12 Weeks (Full restoration of normal activities)",
     symptoms: [
@@ -94,13 +102,15 @@ const services = [
   },
   {
     id: "knee-replacement",
-    icon: Brain,
+    icon: RotateCcw,
     title: "Knee Replacement",
     description:
       "Total and partial knee arthroplasty with precision alignment technology. Restore full knee function and eliminate chronic pain with proven long-term outcomes.",
     color: "from-[#1a4a8a] to-[#0f2d5e]",
     lightColor: "bg-[#eef2ff]",
     iconColor: "text-[#1a4a8a]",
+    accent: "#1a4a8a",
+    image: "/services/service_knee_replacement.png",
     tag: "Surgical",
     recoveryTime: "6 - 10 Weeks (Rapid recovery path)",
     symptoms: [
@@ -118,14 +128,97 @@ const services = [
     nonSurgical: "Viscosupplementation, unloader bracing, weight management, and target-muscle strengthening."
   },
   {
+    id: "arthroscopy",
+    icon: Bone,
+    title: "Arthroscopy",
+    description:
+      "Minimally invasive keyhole surgery for diagnosing and treating sports injuries, ligament tears (ACL/PCL), meniscus tears, and chronic joint mechanical pain.",
+    color: "from-[#1a4a8a] to-[#0f2d5e]",
+    lightColor: "bg-[#eef2ff]",
+    iconColor: "text-[#1a4a8a]",
+    accent: "#1a4a8a",
+    image: "/services/service_arthroscopy.png",
+    tag: "Surgical",
+    recoveryTime: "2 - 6 Weeks (Highly active recovery path)",
+    symptoms: [
+      "Acute joint pain from sudden sports twist or impact",
+      "Joint instability or feeling of giving way (ACL)",
+      "Locking or catching sensation during bending (Meniscus)",
+      "Persistent swelling unresponsive to rest and ice"
+    ],
+    procedures: [
+      "Minimally invasive arthroscopic ACL reconstruction",
+      "Arthroscopic meniscus repair & debridement",
+      "Diagnostic keyhole joint visualization & cartilage cleanout",
+      "Arthroscopic removal of loose bone or tissue bodies"
+    ],
+    nonSurgical: "Targeted pre-operative physical therapy, custom functional bracing, and post-injury active rehab."
+  },
+  {
+    id: "fracture-management",
+    icon: Shield,
+    title: "Fracture Management",
+    description:
+      "Immediate and long-term care for broken bones using modern casting, splinting, and advanced internal fixation surgery for proper healing and skeletal alignment.",
+    color: "from-[#0f2d5e] to-[#2e8b57]",
+    lightColor: "bg-[#f0f7ff]",
+    iconColor: "text-[#0f2d5e]",
+    accent: "#0f2d5e",
+    image: "/services/service_fracture.png",
+    tag: "Speciality",
+    recoveryTime: "6 - 12 Weeks (Bone consolidation timeline)",
+    symptoms: [
+      "Immediate severe pain following a fall, impact, or trauma",
+      "Visible bone deformity or abnormal limb positioning",
+      "Severe localized swelling, tenderness, and bruising",
+      "Inability to bear weight or move the injured limb"
+    ],
+    procedures: [
+      "High-fidelity digital bone alignment mapping",
+      "Precision lightweight casting & custom functional splinting",
+      "Open Reduction Internal Fixation (ORIF) surgery with plates & screws",
+      "Targeted post-consolidation stiffness physical therapy"
+    ],
+    nonSurgical: "Immobilization via custom fiberglass casts, pain management, and progressive bone-loading rehab."
+  },
+  {
+    id: "spine-injury-care",
+    icon: Brain,
+    title: "Spine Injury Care",
+    description:
+      "Expert evaluation and urgent management of spine-related trauma, herniation compression issues, and acute vertebral injuries to protect spinal cord function.",
+    color: "from-[#2e8b57] to-[#1f6b3d]",
+    lightColor: "bg-[#e8f5ee]",
+    iconColor: "text-[#2e8b57]",
+    accent: "#2e8b57",
+    image: "/services/service_spine_care.png",
+    tag: "Trauma",
+    recoveryTime: "4 - 12 Weeks (Varies by trauma severity)",
+    symptoms: [
+      "Acute neck or back pain following trauma or lifting strain",
+      "Numbness, tingling, or loss of sensation in limbs",
+      "Shooting nerve-pathway pain radiating down one or both legs",
+      "Loss of balance, coordination, or gait stability"
+    ],
+    procedures: [
+      "Emergency spinal decompression evaluation",
+      "Minimally invasive spinal stabilization surgery",
+      "Targeted epidural blocks & selective diagnostic nerve injections",
+      "Advanced customized spine-stabilization physical therapy"
+    ],
+    nonSurgical: "Custom medical bracing, nerve block injections, absolute recovery rest, and targeted core posture training."
+  },
+  {
     id: "pain-relief",
     icon: Zap,
     title: "Pain Relief",
     description:
-      "Multimodal pain management strategies combining injections, physiotherapy, and targeted medication to provide effective and lasting relief from musculoskeletal pain.",
+      "Musculoskeletal pain management combining injections, physical therapies, and targeted medication to provide effective and lasting relief from chronic localized pain.",
     color: "from-[#2e8b57] to-[#3aad6e]",
     lightColor: "bg-[#e8f5ee]",
     iconColor: "text-[#2e8b57]",
+    accent: "#2e8b57",
+    image: "/blogs/blog_plantar_fasciitis.png",
     tag: "Non-Surgical",
     recoveryTime: "Immediate to 1 Week (For local procedures)",
     symptoms: [
@@ -151,6 +244,8 @@ const services = [
     color: "from-[#0f3d2e] to-[#0f2d5e]",
     lightColor: "bg-[#e8f5ee]",
     iconColor: "text-[#2e8b57]",
+    accent: "#0f3d2e",
+    image: "/conditions/physio_postop_rehab.png",
     tag: "Rehab",
     recoveryTime: "1 - 3 Months (Varies by baseline state)",
     symptoms: [
@@ -166,6 +261,60 @@ const services = [
       "Return-to-sport testing and conditioning plans"
     ],
     nonSurgical: "Fully conservative rehabilitation, combining direct exercise therapy with visual biofeedback."
+  },
+  {
+    id: "knee-pain-arthritis",
+    icon: Bone,
+    title: "Knee Pain & Arthritis",
+    description:
+      "Comprehensive non-surgical and preventive treatment for degenerative knee wear, chronic joint stiffness, and osteoarthritis to restore active living.",
+    color: "from-[#2e8b57] to-[#1f6b3d]",
+    lightColor: "bg-[#e8f5ee]",
+    iconColor: "text-[#2e8b57]",
+    accent: "#2e8b57",
+    image: "/services/service_joint_care.png",
+    tag: "Speciality",
+    recoveryTime: "Ongoing / 2 - 4 Weeks (For acute flare-ups)",
+    symptoms: [
+      "Chronic joint pain & localized warm swelling",
+      "Stiffness, particularly after long periods of rest",
+      "Difficulty climbing stairs, walking, or bending joint",
+      "Grinding, cracking, or popping sounds (crepitus)"
+    ],
+    procedures: [
+      "Digital radiological joint degradation analysis",
+      "Hyaluronic acid viscosupplementation injections",
+      "Custom unloader knee bracing alignment analysis",
+      "Targeted local anti-inflammatory physical therapies"
+    ],
+    nonSurgical: "Quadriceps & hamstring targeting physical therapy, custom offloader bracing, weight optimization counseling, and intra-articular lubricating supplements."
+  },
+  {
+    id: "ligament-injuries",
+    icon: RotateCcw,
+    title: "Ligament Injuries (ACL/PCL)",
+    description:
+      "State-of-the-art keyhole ligament reconstruction and customized athletic rehabilitation for sports joint injuries.",
+    color: "from-[#1a4a8a] to-[#0f2d5e]",
+    lightColor: "bg-[#eef2ff]",
+    iconColor: "text-[#1a4a8a]",
+    accent: "#1a4a8a",
+    image: "/blogs/blog_acl_recovery.png",
+    tag: "Surgical",
+    recoveryTime: "6 - 9 Months (Full athletic return-to-play)",
+    symptoms: [
+      "A loud popping sound or sensation at injury onset",
+      "Immediate severe joint pain & walking instability",
+      "Rapid, tense knee joint swelling within a few hours",
+      "A feeling that the knee joint is giving way during weight bearing"
+    ],
+    procedures: [
+      "Arthroscopic keyhole ACL/PCL ligament reconstruction",
+      "Precision autograft/allograft tissue selection & placement",
+      "Pre-operative 3D functional biomechanics mapping",
+      "Early range-of-motion mobilization therapy"
+    ],
+    nonSurgical: "Pre-rehabilitation muscle strengthening, custom functional active bracing, and progressive multi-plane joint stabilization rehab."
   }
 ];
 
@@ -230,47 +379,69 @@ export default function Services() {
 
         {/* Grid layout with Morphing layoutId Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-{services.map((s) => (
-            <motion.div
-              layoutId={`card-container-${s.id}`}
-              onClick={() => handleOpen(s)}
-              key={s.id}
-              className="group relative bg-white rounded-3xl p-7 border border-gray-100 hover:shadow-2xl hover:shadow-navy/10 cursor-pointer transition-all duration-300 flex flex-col justify-between"
-              whileHover={{ y: -6 }}
+        {services.map((s) => (
+          <motion.div
+            layoutId={`card-container-${s.id}`}
+            onClick={() => handleOpen(s)}
+            key={s.id}
+            className="group relative h-96 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-[#0f2d5e]/12 transition-all duration-500 cursor-pointer border border-gray-100 flex flex-col justify-end"
+            whileHover={{ y: -6 }}
+          >
+            {/* Background Cover Image */}
+            {s.image && (
+              <Image
+                src={s.image}
+                alt={s.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover group-hover:scale-110 transition-transform duration-700 z-0"
+              />
+            )}
+            
+            {/* Multi-layered visual gradient overlay for text legibility and rich aesthetic */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f2d5e] via-[#0f2d5e]/40 to-transparent z-10 transition-all duration-500 group-hover:from-[#0f2d5e]/95 group-hover:via-[#0f2d5e]/50" />
+
+            {/* Left active colored accent indicator line */}
+            <div
+              className="absolute left-0 bottom-0 top-0 w-1.5 transition-all duration-500 scale-y-0 group-hover:scale-y-100 z-30 origin-bottom"
+              style={{ backgroundColor: s.accent }}
+            />
+            
+            {/* Floating glassmorphic circular icon badge */}
+            <div 
+              className="absolute top-5 right-5 z-20 w-12 h-12 rounded-2xl flex items-center justify-center backdrop-blur-md shadow-lg border border-white/20 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110"
+              style={{ backgroundColor: `${s.accent}d0` }}
             >
-              <div>
-                {/* Tag */}
-                <span className="absolute top-5 right-5 text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-500 group-hover:bg-[#e8f5ee] group-hover:text-[#2e8b57] transition-colors duration-300">
-                  {s.tag}
-                </span>
+              <s.icon className="w-5 h-5 text-white" />
+            </div>
 
-                {/* Icon */}
-                <motion.div
-                  layoutId={`card-icon-${s.id}`}
-                  className={`w-14 h-14 rounded-2xl ${s.lightColor} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <s.icon className={`w-7 h-7 ${s.iconColor}`} />
-                </motion.div>
+            {/* Card Content Area (at bottom on top of gradient) */}
+            <div className="relative z-20 p-6 md:p-8 flex flex-col justify-end text-white transition-all duration-500 translate-y-6 group-hover:translate-y-0">
+              {/* Category Tag */}
+              <span className="self-start text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-white/20 text-white backdrop-blur-sm uppercase tracking-wider mb-2">
+                {s.tag}
+              </span>
 
-                <motion.h3
-                  layoutId={`card-title-${s.id}`}
-                  className="text-xl font-bold text-[#0f2d5e] mb-3"
-                >
-                  {s.title}
-                </motion.h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">{s.description}</p>
+              <motion.h3
+                layoutId={`card-title-${s.id}`}
+                className="text-xl font-bold mb-2 text-white group-hover:text-emerald-400 transition-colors drop-shadow-sm"
+              >
+                {s.title}
+              </motion.h3>
+              
+              {/* Description with reveal effect */}
+              <p className="text-white/85 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 max-h-0 group-hover:max-h-24 overflow-hidden">
+                {s.description}
+              </p>
+              
+              {/* Arrow link indicator */}
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Learn More & Details
+                <ArrowRight className="w-3.5 h-3.5" />
               </div>
-
-              {/* Action hint */}
-              <div className="text-xs font-bold text-[#2e8b57] group-hover:text-[#1f6b3d] flex items-center gap-1 mt-auto">
-                Learn More & Recovery Info
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-
-              {/* Bottom accent line */}
-              <div className={`absolute bottom-0 left-7 right-7 h-0.5 rounded-full bg-gradient-to-r ${s.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+        ))}
         </div>
 
         {/* CTA banner */}
@@ -304,52 +475,58 @@ export default function Services() {
             {/* Modal Sheet Container */}
             <motion.div
               layoutId={`card-container-${activeService.id}`}
-              className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col md:flex-row"
+              className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10 max-h-[92vh] sm:max-h-[90vh] flex flex-col md:flex-row"
               transition={{ type: "spring", damping: 26, stiffness: 190 }}
             >
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors z-20 md:bg-white md:hover:bg-slate-100"
+                className="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full bg-black/20 hover:bg-black/35 text-white md:bg-slate-100 md:hover:bg-slate-200 md:text-slate-500 md:hover:text-slate-800 transition-colors z-30"
                 aria-label="Close details"
               >
                 <X className="w-5 h-5" />
               </button>
 
               {/* Left Column: Visual overview with branded gradient */}
-              <div className={`md:w-5/12 bg-gradient-to-br ${activeService.color} p-8 text-white flex flex-col justify-between relative flex-shrink-0 min-h-[220px] md:min-h-0`}>
+              <div className={`w-full md:w-5/12 bg-gradient-to-br ${activeService.color} p-6 md:p-8 text-white flex flex-col justify-between relative flex-shrink-0 min-h-[160px] md:min-h-0`}>
                 {/* Decorative radial lighting */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_60%)] pointer-events-none" />
 
                 <div>
-                  {/* Category Tag */}
-                  <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-white/20 text-white backdrop-blur-sm mb-6 uppercase tracking-wider">
-                    {activeService.tag}
-                  </span>
+                  <div className="flex items-center gap-2 mb-4 md:mb-6">
+                    {/* Category Tag */}
+                    <span className="inline-block text-[10px] md:text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white/20 text-white backdrop-blur-sm uppercase tracking-wider">
+                      {activeService.tag}
+                    </span>
+                    {/* Compact recovery text for mobile */}
+                    <span className="inline-block md:hidden text-[10px] font-semibold text-emerald-300">
+                      • {activeService.recoveryTime.split(" (")[0]}
+                    </span>
+                  </div>
 
-                  {/* Icon */}
-                  <motion.div
-                    layoutId={`card-icon-${activeService.id}`}
-                    className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-lg mb-6"
-                  >
-                    <activeService.icon className={`w-8 h-8 ${activeService.iconColor}`} />
-                  </motion.div>
+                  <div className="flex items-center gap-4 md:block">
+                    {/* Icon */}
+                    <motion.div
+                      layoutId={`card-icon-${activeService.id}`}
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-white flex items-center justify-center shadow-lg mb-0 md:mb-6 flex-shrink-0"
+                    >
+                      <activeService.icon className={`w-6 h-6 md:w-8 md:h-8 ${activeService.iconColor}`} />
+                    </motion.div>
 
-                  {/* Title */}
-                  <motion.h3
-                    layoutId={`card-title-${activeService.id}`}
-                    className="text-3xl font-extrabold mb-3 leading-tight"
-                  >
-                    {activeService.title}
-                  </motion.h3>
-                  
-                  <p className="text-white/80 text-sm leading-relaxed max-w-xs">
-                    {activeService.description}
-                  </p>
+                    <div>
+                      {/* Title */}
+                      <motion.h3
+                        layoutId={`card-title-${activeService.id}`}
+                        className="text-xl md:text-3xl font-extrabold leading-tight"
+                      >
+                        {activeService.title}
+                      </motion.h3>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Recovery expectations pill */}
-                <div className="mt-8 bg-white/10 border border-white/15 rounded-2xl p-4 flex items-start gap-3 backdrop-blur-sm">
+                {/* Recovery expectations pill - desktop only */}
+                <div className="hidden md:flex mt-8 bg-white/10 border border-white/15 rounded-2xl p-4 items-start gap-3 backdrop-blur-sm">
                   <Clock className="w-5 h-5 text-[#3aad6e] flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="text-[10px] uppercase tracking-widest text-white/60 font-bold font-mono">
@@ -361,16 +538,16 @@ export default function Services() {
               </div>
 
               {/* Right Column: Detailed clinical content */}
-              <div className="md:w-7/12 p-8 overflow-y-auto flex flex-col justify-between max-h-[55vh] md:max-h-none">
-                <div className="space-y-6">
+              <div className="w-full md:w-7/12 p-5 md:p-8 flex flex-col justify-between overflow-y-auto max-h-[calc(92vh-160px)] md:max-h-none flex-grow">
+                <div className="space-y-5">
                   {/* Symptoms list */}
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest text-[#2e8b57] font-bold mb-3 font-mono">
+                    <h4 className="text-[10px] md:text-xs uppercase tracking-widest text-[#2e8b57] font-bold mb-2 md:mb-3 font-mono">
                       Symptoms Addressed
                     </h4>
-                    <div className="grid sm:grid-cols-2 gap-2.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {activeService.symptoms.map((symptom, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                        <div key={idx} className="flex items-start gap-2 text-xs md:text-sm text-slate-600">
                           <CheckCircle2 className="w-4 h-4 text-[#2e8b57] flex-shrink-0 mt-0.5" />
                           <span>{symptom}</span>
                         </div>
@@ -380,13 +557,13 @@ export default function Services() {
 
                   {/* Procedures list */}
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest text-[#0f2d5e] font-bold mb-3 font-mono">
+                    <h4 className="text-[10px] md:text-xs uppercase tracking-widest text-[#0f2d5e] font-bold mb-2 md:mb-3 font-mono">
                       Advanced Procedures
                     </h4>
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       {activeService.procedures.map((proc, idx) => (
-                        <div key={idx} className="flex items-start gap-3 text-sm text-slate-700">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#2e8b57] mt-2 flex-shrink-0" />
+                        <div key={idx} className="flex items-start gap-2.5 text-xs md:text-sm text-slate-700">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#2e8b57] mt-1.5 flex-shrink-0" />
                           <span className="font-semibold leading-relaxed">{proc}</span>
                         </div>
                       ))}
@@ -394,28 +571,28 @@ export default function Services() {
                   </div>
 
                   {/* Non-surgical alternatives */}
-                  <div className="p-4 bg-[#f8fafc] rounded-2xl border border-slate-100">
-                    <h4 className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1.5 font-mono">
+                  <div className="p-3.5 bg-[#f8fafc] rounded-xl border border-slate-100">
+                    <h4 className="text-[9px] md:text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1 font-mono">
                       Non-Surgical Approach
                     </h4>
-                    <p className="text-slate-600 text-xs leading-relaxed">
+                    <p className="text-slate-600 text-[11px] md:text-xs leading-relaxed">
                       {activeService.nonSurgical}
                     </p>
                   </div>
                 </div>
 
                 {/* Appointment booking CTA */}
-                <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-4">
+                <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
                   <a
                     href={`/contact?concern=${encodeURIComponent(activeService.title)}`}
-                    className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0f2d5e] text-white font-bold text-sm hover:bg-[#1a4a8a] transition-all duration-300 hover:shadow-lg shadow-navy/10 text-center"
+                    className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#0f2d5e] text-white font-bold text-xs md:text-sm hover:bg-[#1a4a8a] transition-all duration-300 hover:shadow-lg shadow-navy/10 text-center"
                   >
                     Request Consultation
                     <ArrowRight className="w-4 h-4" />
                   </a>
                   <button
                     onClick={handleClose}
-                    className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-slate-200 text-slate-500 font-semibold text-sm hover:bg-slate-50 transition-colors"
+                    className="w-full sm:w-auto px-5 py-3 rounded-full border border-slate-200 text-slate-500 font-semibold text-xs md:text-sm hover:bg-slate-50 transition-colors"
                   >
                     Back to Services
                   </button>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { blogs } from "@/data/blogs";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Orthopedic Insights & Blog | JointXperts",
@@ -35,10 +36,20 @@ export default function BlogPage() {
               href={`/blog/${blog.slug}`}
               className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col"
             >
-              {/* Card Header (Gradient Cover) */}
-              <div className={`h-48 bg-gradient-to-br ${blog.gradient} p-6 flex items-end relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-                <span className="relative z-10 px-4 py-1.5 bg-white/20 backdrop-blur-md text-white text-xs font-semibold rounded-full border border-white/20 uppercase tracking-wider">
+              {/* Card Header (Image Cover) */}
+              <div className="h-48 relative overflow-hidden">
+                {blog.image && (
+                  <Image 
+                    src={blog.image} 
+                    alt={blog.title} 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 z-0"
+                  />
+                )}
+                {/* Visual enhancement overlay: gradient overlay for text readability and premium aesthetic */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10" />
+                <span className="absolute bottom-6 left-6 z-20 px-4 py-1.5 bg-white/20 backdrop-blur-md text-white text-xs font-semibold rounded-full border border-white/20 uppercase tracking-wider">
                   {blog.category}
                 </span>
               </div>

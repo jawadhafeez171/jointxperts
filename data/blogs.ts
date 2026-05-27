@@ -9,6 +9,7 @@ export interface BlogPost {
   readTime: string;
   category: string;
   gradient: string;
+  image: string;
 }
 
 export const blogs: BlogPost[] = [
@@ -38,6 +39,7 @@ export const blogs: BlogPost[] = [
     readTime: "5 min read",
     category: "Joint Care",
     gradient: "from-[#0f2d5e] to-[#1a4a8a]",
+    image: "/blogs/blog_osteoarthritis.png",
   },
   {
     id: "2",
@@ -66,6 +68,7 @@ export const blogs: BlogPost[] = [
     readTime: "6 min read",
     category: "Sports Injuries",
     gradient: "from-[#2e8b57] to-[#3aad6e]",
+    image: "/blogs/blog_acl_recovery.png",
   },
   {
     id: "3",
@@ -95,6 +98,7 @@ export const blogs: BlogPost[] = [
     readTime: "4 min read",
     category: "Shoulder Care",
     gradient: "from-[#091d3d] to-[#0f3d2e]",
+    image: "/blogs/blog_rotator_cuff.png",
   },
   {
     id: "4",
@@ -122,5 +126,6 @@ export const blogs: BlogPost[] = [
     readTime: "4 min read",
     category: "Foot & Ankle",
     gradient: "from-[#1a3a6b] to-[#2e8b57]",
+    image: "/blogs/blog_plantar_fasciitis.png",
   }
 ];

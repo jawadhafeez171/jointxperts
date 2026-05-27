@@ -3,6 +3,7 @@ import { blogs } from "@/data/blogs";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -35,8 +36,17 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <article className="min-h-screen bg-white pb-24">
       {/* Hero Banner */}
-      <div className={`relative pt-32 pb-20 px-6 lg:px-8 bg-gradient-to-br ${blog.gradient}`}>
-        <div className="absolute inset-0 bg-black/20" />
+      <div className="relative pt-32 pb-20 px-6 lg:px-8 bg-[#0f2d5e] overflow-hidden">
+        {blog.image && (
+          <Image 
+            src={blog.image} 
+            alt={blog.title} 
+            fill 
+            priority
+            className="object-cover opacity-25 z-0"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f2d5e] via-[#0f2d5e]/90 to-transparent z-0 pointer-events-none" />
         
         <div className="relative max-w-4xl mx-auto z-10">
           <Link 

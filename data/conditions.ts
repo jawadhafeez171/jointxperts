@@ -351,7 +351,7 @@ export const conditionCategories: ConditionCategory[] = [
         title: "Post-Operative Rehabilitation",
         shortDescription: "Essential physical therapy to restore function after surgery.",
         fullDescription: "Post-operative rehabilitation is crucial for achieving the best possible outcome following orthopedic surgery. It involves a progressive program of exercises and therapies designed to restore range of motion, build strength, reduce pain, and prevent scar tissue formation.",
-        image: "/conditions/rehab_postop.png",
+        image: "/conditions/physio_postop_rehab.png",
         symptoms: [
           "Post-surgical stiffness",
           "Muscle weakness around the surgical site",
@@ -368,7 +368,7 @@ export const conditionCategories: ConditionCategory[] = [
         title: "Sports Injury Recovery",
         shortDescription: "Specialized rehab for athletic injuries to return to play.",
         fullDescription: "Sports injury recovery focuses on getting athletes back to their pre-injury level of activity. Treatment plans are highly individualized based on the sport, the specific injury, and the athlete's goals, focusing heavily on dynamic strength and agility.",
-        image: "/conditions/rehab_postop.png",
+        image: "/conditions/physio_sports_injury.png",
         symptoms: [
           "Acute pain from sudden impact or sprain",
           "Chronic pain from overuse",
@@ -385,7 +385,7 @@ export const conditionCategories: ConditionCategory[] = [
         title: "Core Strengthening",
         shortDescription: "Targeted exercises to stabilize the spine and pelvis.",
         fullDescription: "Core strengthening is a fundamental component of physical therapy, particularly for back pain and lower extremity issues. A strong core provides a stable foundation for all movement, reducing stress on the spine and peripheral joints.",
-        image: "/conditions/rehab_postop.png",
+        image: "/conditions/physio_core_strengthening.png",
         symptoms: [
           "Chronic lower back pain",
           "Poor posture",
