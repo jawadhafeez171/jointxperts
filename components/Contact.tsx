@@ -21,10 +21,10 @@ const info = [
   },
   {
     icon: MapPin,
-    title: "Clinic",
-    value: "JointXperts Clinic",
-    sub: "City, State — India",
-    href: "#",
+    title: "Primary Clinic",
+    value: "JOINTXPERTS (Atharva Clinic)",
+    sub: "No. 29, Tirumala Complex, Bhoopasandra Bus Stop, Bengaluru — 560094",
+    href: "https://maps.app.goo.gl/dzvjfqa8Y3TXfJEK9",
   },
   {
     icon: Clock,
@@ -89,17 +89,40 @@ export default function Contact() {
               </a>
             ))}
 
-            {/* Consultation Image */}
-            <div className="rounded-2xl overflow-hidden border border-gray-100 h-64 relative">
-              <Image 
-                src="/consult.webp" 
-                alt="Orthopedic Consultation" 
-                fill 
-                className="object-cover"
+            {/* Live Interactive Map */}
+            <div className="rounded-2xl overflow-hidden border border-gray-100 h-64 shadow-sm relative">
+              <iframe
+                title="JointXperts Clinic Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0005706497554!2d77.581451!3d13.035773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17ba98ed4d7b%3A0x34feb90fe32af438%2sJOINTXPERTS%20(ATHARVA%20MULTISPECIALITY%20CLINIC)!5e0!3m2!1sen!2sin!4v1717056000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f2d5e]/70 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-bold text-lg leading-tight">Your Journey to Pain-Free Living Starts Here</p>
+            </div>
+
+            {/* Other Locations */}
+            <div className="pt-2">
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 px-1">Also Visiting At</h3>
+              <div className="grid grid-cols-2 gap-3">
+                <a href="https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8" target="_blank" rel="noopener noreferrer" className="block p-3 rounded-xl bg-[#f8fafc] hover:bg-[#e8f5ee] border border-gray-100 hover:border-[#2e8b57]/30 transition-all group">
+                  <div className="font-semibold text-[#0f2d5e] text-sm group-hover:text-[#2e8b57] transition-colors line-clamp-1">Atharva Multispecialty</div>
+                  <div className="text-gray-500 text-xs mt-0.5 line-clamp-1">Guddadahalli, Hebbal</div>
+                </a>
+                <a href="https://maps.app.goo.gl/5TfJEiDDZayVwHze9" target="_blank" rel="noopener noreferrer" className="block p-3 rounded-xl bg-[#f8fafc] hover:bg-[#e8f5ee] border border-gray-100 hover:border-[#2e8b57]/30 transition-all group">
+                  <div className="font-semibold text-[#0f2d5e] text-sm group-hover:text-[#2e8b57] transition-colors line-clamp-1">Ayesha Polyclinic</div>
+                  <div className="text-gray-500 text-xs mt-0.5 line-clamp-1">Sultanpalya, Hebbal</div>
+                </a>
+                <a href="https://maps.app.goo.gl/NJTQtWkiQAmuGmPj6" target="_blank" rel="noopener noreferrer" className="block p-3 rounded-xl bg-[#f8fafc] hover:bg-[#e8f5ee] border border-gray-100 hover:border-[#2e8b57]/30 transition-all group">
+                  <div className="font-semibold text-[#0f2d5e] text-sm group-hover:text-[#2e8b57] transition-colors line-clamp-1">Darr-Ul-Shifa Clinic</div>
+                  <div className="text-gray-500 text-xs mt-0.5 line-clamp-1">Nagavara</div>
+                </a>
+                <a href="https://maps.app.goo.gl/zyJwywMvVKEE8E6e7" target="_blank" rel="noopener noreferrer" className="block p-3 rounded-xl bg-[#f8fafc] hover:bg-[#e8f5ee] border border-gray-100 hover:border-[#2e8b57]/30 transition-all group">
+                  <div className="font-semibold text-[#0f2d5e] text-sm group-hover:text-[#2e8b57] transition-colors line-clamp-1">Apollo Clinic</div>
+                  <div className="text-gray-500 text-xs mt-0.5 line-clamp-1">New BEL Road</div>
+                </a>
               </div>
             </div>
           </div>

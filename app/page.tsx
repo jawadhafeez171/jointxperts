@@ -3,6 +3,7 @@ import About from "@/components/About";
 import HomeFeatures from "@/components/HomeFeatures";
 import HowItWorks from "@/components/HowItWorks";
 import FAQ from "@/components/FAQ";
+import Locations from "@/components/Locations";
 import Link from "next/link";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <HomeFeatures />
       <HowItWorks />
       <FAQ />
+      <Locations />
 
       {/* Final CTA Banner */}
       <section className="py-20 bg-[#f8fafc]">

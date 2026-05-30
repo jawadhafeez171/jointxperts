@@ -113,11 +113,20 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest text-[#3aad6e] mb-5">Contact</h4>
+            <h4 className="font-bold text-sm uppercase tracking-widest text-[#3aad6e] mb-5">Primary Clinic</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-white/50 text-sm">
                 <MapPin className="w-4 h-4 text-[#3aad6e] mt-0.5 flex-shrink-0" />
-                JointXperts Clinic<br />City, State — India
+                <a 
+                  href="https://maps.app.goo.gl/dzvjfqa8Y3TXfJEK9" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white transition-colors"
+                >
+                  JOINTXPERTS (Atharva Clinic)<br />
+                  No. 29, Tirumala Complex, Bhoopasandra Bus Stop,<br />
+                  RMV 2nd Stage, Bengaluru — 560094
+                </a>
               </li>
               <li className="flex items-center gap-3 text-white/50 text-sm">
                 <Phone className="w-4 h-4 text-[#3aad6e] flex-shrink-0" />
@@ -129,17 +138,41 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
-              <div className="text-xs font-semibold text-[#3aad6e] uppercase tracking-wider mb-1">Clinic Hours</div>
-              <div className="text-white/70 text-sm">Mon – Sat: 9:00 AM – 6:00 PM</div>
-              <div className="text-white/40 text-xs">Sunday: By appointment only</div>
+            <h4 className="font-bold text-sm uppercase tracking-widest text-[#3aad6e] mb-4 mt-8">Also Visiting At</h4>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+              <a href="https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
+                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Atharva Multispecialty</div>
+                <div className="text-xs mt-0.5 line-clamp-1">Hebbal</div>
+              </a>
+              <a href="https://maps.app.goo.gl/5TfJEiDDZayVwHze9" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
+                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Ayesha Polyclinic</div>
+                <div className="text-xs mt-0.5 line-clamp-1">Sultanpalya</div>
+              </a>
+              <a href="https://maps.app.goo.gl/NJTQtWkiQAmuGmPj6" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
+                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Darr-Ul-Shifa Clinic</div>
+                <div className="text-xs mt-0.5 line-clamp-1">Nagavara</div>
+              </a>
+              <a href="https://maps.app.goo.gl/zyJwywMvVKEE8E6e7" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
+                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Apollo Clinic</div>
+                <div className="text-xs mt-0.5 line-clamp-1">New BEL Road</div>
+              </a>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/30 text-xs">
-          <span>© {new Date().getFullYear()} JointXperts. All rights reserved.</span>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-left">
+            <span>© {new Date().getFullYear()} JointXperts. All rights reserved.</span>
+            <a 
+              href="https://maps.app.goo.gl/dzvjfqa8Y3TXfJEK9" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-[#3aad6e] font-semibold hover:text-[#42c27c] transition-colors inline-flex items-center gap-1 mt-1 sm:mt-0"
+            >
+              <span className="text-yellow-400">★</span> Share your experience / Review us on Google
+            </a>
+          </div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white/60 transition-colors">Terms of Service</a>

@@ -16,17 +16,18 @@ const geist = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://jointxperts.in"),
-  title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic & Joint Replacement Surgeon",
+  title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic & Joint Replacement Surgeon in Bengaluru",
   description:
-    "Expert orthopedic care by Dr. Syed Parveez Ahmed, MBBS MS(Ortho) FRGUHS(Arthroplasty). Specialising in joint care, spine care, hip & knee replacement, and pain relief.",
+    "Top orthopedic care in Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee & hip replacement, spine care, and sports injuries. Visit clinics in Bhoopasandra, Hebbal, Nagavara, and RMV 2nd Stage.",
+  keywords: ["Orthopedic Surgeon Bengaluru", "Joint Replacement Surgeon Hebbal", "Knee Replacement Doctor", "Dr Syed Parveez Ahmed", "Orthopedic Clinic Bhoopasandra", "Spine Care Nagavara", "Orthopedic Doctor RMV 2nd Stage", "Hip Replacement Bengaluru", "Best Orthopedician in North Bangalore", "ortho near me", "orthopedic doctor near me"],
   icons: { icon: "/favicon.ico" },
   verification: {
     google: "eM33ov6Ql0Bx2EUNtCWJIgU1bZIwJdzNElJtm0Yj4JM",
   },
   openGraph: {
-    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic & Joint Replacement Surgeon",
+    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bengaluru",
     description:
-      "Expert orthopedic care by Dr. Syed Parveez Ahmed, MBBS MS(Ortho) FRGUHS(Arthroplasty). Specialising in joint care, spine care, hip & knee replacement, and pain relief.",
+      "Top orthopedic care in Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee & hip replacement, spine care, and sports injuries. Visit clinics in Bhoopasandra, Hebbal, Nagavara, and RMV 2nd Stage.",
     url: "https://jointxperts.in",
     siteName: "JointXperts",
     images: [
@@ -42,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic & Joint Replacement Surgeon",
+    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bengaluru",
     description:
-      "Expert orthopedic care by Dr. Syed Parveez Ahmed, MBBS MS(Ortho) FRGUHS(Arthroplasty). Specialising in joint care, spine care, hip & knee replacement, and pain relief.",
+      "Top orthopedic care in Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee & hip replacement, spine care, and sports injuries. Visit clinics in Bhoopasandra, Hebbal, Nagavara, and RMV 2nd Stage.",
     images: ["/brochure.jpg"],
   },
 };
