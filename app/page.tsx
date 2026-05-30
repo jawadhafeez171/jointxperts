@@ -1,20 +1,17 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import WhyUs from "@/components/WhyUs";
 import HomeFeatures from "@/components/HomeFeatures";
 import HowItWorks from "@/components/HowItWorks";
-import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <About />
-      <WhyUs />
       <HomeFeatures />
       <HowItWorks />
-      <Testimonials />
       <FAQ />
 
       {/* Final CTA Banner */}
@@ -28,12 +25,13 @@ export default function Home() {
               Schedule a consultation with Dr. Syed Parveez Ahmed and start your journey to pain-free living.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="/contact"
+              <Link
+                href="?booking=true"
+                scroll={false}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#2e8b57] text-white font-semibold text-base hover:bg-[#1f6b3d] transition-all duration-300 hover:shadow-2xl hover:shadow-green-900/40"
               >
                 Book Appointment
-              </a>
+              </Link>
               <a
                 href="/about"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all duration-300"

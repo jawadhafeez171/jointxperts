@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { Bone, Activity, RotateCcw, Brain, ArrowRight, Users, Award, Shield, Star, Zap } from "lucide-react";
+import Testimonials from "./Testimonials";
 
 const stats = [
   { icon: Users, value: "5000+", label: "Patients Treated" },
@@ -269,6 +270,8 @@ export default function HomeFeatures() {
         </div>
       </section>
 
+      <Testimonials />
+
       {/* ── Conditions ───────────────────────────────────────────────── */}
       <section className="py-20 bg-white" ref={conditionsRef}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -306,34 +309,6 @@ export default function HomeFeatures() {
           </motion.div>
         </div>
       </section>
-
-      {/* ── Stats ─────────────────────────────────────────────────── */}
-      <section className="py-16 bg-[#f8fafc]" ref={statsRef}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-6"
-            initial="hidden"
-            animate={statsInView ? "visible" : "hidden"}
-            variants={{ visible: { transition: { staggerChildren: 0.13 } } }}
-          >
-            {stats.map(({ icon: Icon, value, label }) => (
-              <motion.div
-                key={label}
-                variants={scaleIn}
-                custom={0}
-                className="text-center p-8 rounded-2xl bg-gradient-to-br from-[#0f2d5e] to-[#1a4a8a] text-white"
-              >
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-6 h-6 text-[#3aad6e]" />
-                </div>
-                <div className="text-4xl font-bold mb-1">{value}</div>
-                <div className="text-white/60 text-sm">{label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
     </>
   );
 }

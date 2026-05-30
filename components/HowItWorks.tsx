@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { CalendarCheck, Stethoscope, HeartPulse } from "lucide-react";
 
@@ -106,12 +107,13 @@ export default function HowItWorks() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.58 }}
         >
-          <a
-            href="/contact"
+          <Link
+            href="?booking=true"
+            scroll={false}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#2e8b57] text-white font-semibold hover:bg-[#1f6b3d] transition-all duration-300 hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5"
           >
             Book Your First Appointment
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

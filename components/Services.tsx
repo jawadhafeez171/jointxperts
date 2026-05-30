@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
 import {
   Bone,
@@ -450,12 +451,13 @@ export default function Services() {
             <h3 className="text-2xl font-bold mb-1">Not sure which treatment is right for you?</h3>
             <p className="text-white/60">Book a consultation and let Dr. Ahmed guide you with expert advice.</p>
           </div>
-          <a
-            href="/contact"
+          <Link
+            href="?booking=true"
+            scroll={false}
             className="flex-shrink-0 px-7 py-3.5 rounded-full bg-[#2e8b57] text-white font-semibold hover:bg-[#1f6b3d] transition-all duration-300 hover:shadow-xl hover:shadow-green-900/40 whitespace-nowrap"
           >
             Get Expert Opinion
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -583,13 +585,14 @@ export default function Services() {
 
                 {/* Appointment booking CTA */}
                 <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-                  <a
-                    href={`/contact?concern=${encodeURIComponent(activeService.title)}`}
+                  <Link
+                    href={`?booking=true&concern=${encodeURIComponent(activeService.title)}`}
+                    scroll={false}
                     className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#0f2d5e] text-white font-bold text-xs md:text-sm hover:bg-[#1a4a8a] transition-all duration-300 hover:shadow-lg shadow-navy/10 text-center"
                   >
                     Request Consultation
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                   <button
                     onClick={handleClose}
                     className="w-full sm:w-auto px-5 py-3 rounded-full border border-slate-200 text-slate-500 font-semibold text-xs md:text-sm hover:bg-slate-50 transition-colors"
