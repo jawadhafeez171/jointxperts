@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description:
     "Expert orthopedic care by Dr. Syed Parveez Ahmed, MBBS MS(Ortho) FRGUHS(Arthroplasty). Specialising in joint care, spine care, hip & knee replacement, and pain relief.",
   icons: { icon: "/favicon.ico" },
+  verification: {
+    google: "eM33ov6Ql0Bx2EUNtCWJIgU1bZIwJdzNElJtm0Yj4JM",
+  },
 };
 
 export const viewport = {
@@ -36,7 +39,7 @@ export default function RootLayout({
         <SplashScreen />
         <Navbar />
         <main className="flex-1 pb-20 lg:pb-0" style={{ paddingBottom: 'calc(5rem + env(safe-area-inset-bottom))' }}>{children}</main>
-        <div className="hidden md:block"><FloatingBookButton /></div>
+        <FloatingBookButton />
         <Footer />
         <BottomNav />
         <Suspense fallback={null}>
