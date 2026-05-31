@@ -52,7 +52,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div
-            className={`relative w-52 h-14 transition-all duration-500 ${
+            className={`relative w-[240px] h-[72px] lg:w-52 lg:h-14 transition-all duration-500 ${
               transparent ? "bg-white/90 rounded-xl px-3 py-1 backdrop-blur-sm" : ""
             }`}
           >

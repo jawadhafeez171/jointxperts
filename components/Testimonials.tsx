@@ -52,7 +52,7 @@ const testimonials = [
     age: 39,
     procedure: "Knee Care & Consultation",
     quote:
-      "Dr. Syed Parveez Ahmed is an outstanding orthopedic surgeon. I visited JointXperts at Atharva Clinic for my knee pain. He explained the condition in detail and recommended physiotherapy instead of jumping to surgery. Extremely honest and caring doctor!",
+      "Dr. Syed Parveez Ahmed is an outstanding orthopedic surgeon. I visited JointXperts at Atharva Multispeciality Hospital for my knee pain. He explained the condition in detail and recommended physiotherapy instead of jumping to surgery. Extremely honest and caring doctor!",
     rating: 5,
     initials: "AD",
     color: "bg-[#2e8b57]",
@@ -62,7 +62,7 @@ const testimonials = [
     age: 64,
     procedure: "Knee Replacement",
     quote:
-      "Highly recommend JointXperts in Bhoopasandra. My mother underwent a knee replacement under Dr. Parveez Ahmed. The entire procedure was handled with absolute professionalism, and the post-op care at Atharva Clinic was exceptional. She is now walking pain-free!",
+      "Highly recommend JointXperts. My mother underwent a knee replacement under Dr. Parveez Ahmed at Atharva Multispeciality Hospital. The entire procedure was handled with absolute professionalism, and the post-op care was exceptional. She is now walking pain-free!",
     rating: 5,
     initials: "VN",
     color: "bg-[#0f2d5e]",

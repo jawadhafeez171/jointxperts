@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://jointxperts.in"),
   title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic & Joint Replacement Surgeon in Bengaluru",
   description:
-    "Top orthopedic care in Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee & hip replacement, spine care, and sports injuries. Visit clinics in Bhoopasandra, Hebbal, Nagavara, and RMV 2nd Stage.",
-  keywords: ["Orthopedic Surgeon Bengaluru", "Joint Replacement Surgeon Hebbal", "Knee Replacement Doctor", "Dr Syed Parveez Ahmed", "Orthopedic Clinic Bhoopasandra", "Spine Care Nagavara", "Orthopedic Doctor RMV 2nd Stage", "Hip Replacement Bengaluru", "Best Orthopedician in North Bangalore", "ortho near me", "orthopedic doctor near me"],
+    "Top orthopedic care in Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee & hip replacement, spine care, and sports injuries. Visit clinics in Hebbal, Nagavara, and New BEL Road.",
+  keywords: ["Orthopedic Surgeon Bengaluru", "Joint Replacement Surgeon Hebbal", "Knee Replacement Doctor", "Dr Syed Parveez Ahmed", "Orthopedic Clinic Hebbal", "Spine Care Nagavara", "Orthopedic Doctor BEL Road", "Hip Replacement Bengaluru", "Best Orthopedician in North Bangalore", "ortho near me", "orthopedic doctor near me"],
   icons: { icon: "/favicon.ico" },
   verification: {
     google: "eM33ov6Ql0Bx2EUNtCWJIgU1bZIwJdzNElJtm0Yj4JM",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bengaluru",
     description:
-      "Top orthopedic care in Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee & hip replacement, spine care, and sports injuries. Visit clinics in Bhoopasandra, Hebbal, Nagavara, and RMV 2nd Stage.",
+      "Top orthopedic care in Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee & hip replacement, spine care, and sports injuries. Visit clinics in Hebbal, Nagavara, and New BEL Road.",
     url: "https://jointxperts.in",
     siteName: "JointXperts",
     images: [
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bengaluru",
     description:
-      "Top orthopedic care in Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee & hip replacement, spine care, and sports injuries. Visit clinics in Bhoopasandra, Hebbal, Nagavara, and RMV 2nd Stage.",
+      "Top orthopedic care in Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee & hip replacement, spine care, and sports injuries. Visit clinics in Hebbal, Nagavara, and New BEL Road.",
     images: ["/brochure.jpg"],
   },
 };

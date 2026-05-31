@@ -118,14 +118,14 @@ export default function Footer() {
               <li className="flex items-start gap-3 text-white/50 text-sm">
                 <MapPin className="w-4 h-4 text-[#3aad6e] mt-0.5 flex-shrink-0" />
                 <a 
-                  href="https://maps.app.goo.gl/dzvjfqa8Y3TXfJEK9" 
+                  href="https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="hover:text-white transition-colors"
                 >
-                  JOINTXPERTS (Atharva Clinic)<br />
-                  No. 29, Tirumala Complex, Bhoopasandra Bus Stop,<br />
-                  RMV 2nd Stage, Bengaluru — 560094
+                  Atharva Multispeciality Hospital<br />
+                  20/2, Guddadhalli Main Rd, near Aryan tower,<br />
+                  Kempanna Layout, Hebbal, Bengaluru
                 </a>
               </li>
               <li className="flex items-center gap-3 text-white/50 text-sm">
@@ -140,10 +140,6 @@ export default function Footer() {
 
             <h4 className="font-bold text-sm uppercase tracking-widest text-[#3aad6e] mb-4 mt-8">Also Visiting At</h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-              <a href="https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
-                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Atharva Multispecialty</div>
-                <div className="text-xs mt-0.5 line-clamp-1">Hebbal</div>
-              </a>
               <a href="https://maps.app.goo.gl/5TfJEiDDZayVwHze9" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
                 <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Ayesha Polyclinic</div>
                 <div className="text-xs mt-0.5 line-clamp-1">Sultanpalya</div>

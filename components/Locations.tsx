@@ -4,16 +4,10 @@ import { MapPin, Navigation, Clock } from "lucide-react";
 
 const locations = [
   {
-    name: "JOINTXPERTS (Primary Clinic)",
-    address: "No. 29, Tirumala Complex, Bhoopasandra Bus Stop, RMV 2nd Stage, Bengaluru — 560094",
-    link: "https://maps.app.goo.gl/dzvjfqa8Y3TXfJEK9",
-    primary: true,
-  },
-  {
-    name: "Atharva Multispecialty Clinic",
+    name: "Atharva Multispeciality Hospital",
     address: "20/2, Guddadhalli Main Rd, near Aryan tower, Kempanna Layout, Hebbal, Bengaluru",
     link: "https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8",
-    primary: false,
+    primary: true,
   },
   {
     name: "Ayesha Polyclinic",

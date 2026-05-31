@@ -22,9 +22,9 @@ const info = [
   {
     icon: MapPin,
     title: "Primary Clinic",
-    value: "JOINTXPERTS (Atharva Clinic)",
-    sub: "No. 29, Tirumala Complex, Bhoopasandra Bus Stop, Bengaluru — 560094",
-    href: "https://maps.app.goo.gl/dzvjfqa8Y3TXfJEK9",
+    value: "Atharva Multispeciality Hospital",
+    sub: "20/2, Guddadhalli Main Rd, near Aryan tower, Kempanna Layout, Hebbal, Bengaluru",
+    href: "https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8",
   },
   {
     icon: Clock,
