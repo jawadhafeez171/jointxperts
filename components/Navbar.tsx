@@ -52,9 +52,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div
-            className={`relative w-[240px] h-[72px] lg:w-52 lg:h-14 transition-all duration-500 ${
-              transparent ? "bg-white/90 rounded-xl px-3 py-1 backdrop-blur-sm" : ""
-            }`}
+            className="relative w-[240px] h-[72px] lg:w-52 lg:h-14 transition-all duration-500 bg-white/90 rounded-xl px-3 py-1 backdrop-blur-sm shadow-sm border border-gray-200/20 flex items-center justify-center"
           >
             <Image
               src="/logo.webp"
