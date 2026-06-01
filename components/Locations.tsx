@@ -1,6 +1,7 @@
 "use client";
 
-import { MapPin, Navigation, Clock } from "lucide-react";
+import { MapPin, Navigation } from "lucide-react";
+import Image from "next/image";
 
 const locations = [
   {
@@ -8,18 +9,28 @@ const locations = [
     address: "20/2, Guddadhalli Main Rd, near Aryan tower, Kempanna Layout, Hebbal, Bengaluru",
     link: "https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8",
     primary: true,
+    qrCode: "/qrcode/atharva.jpeg",
   },
   {
     name: "Ayesha Polyclinic",
     address: "26, KHB Colony Main Rd, Ayyappa Layout, Sultanpalya, Hebbal, Bengaluru",
     link: "https://maps.app.goo.gl/5TfJEiDDZayVwHze9",
     primary: false,
+    qrCode: "/qrcode/ayesha poli clinic qr code.jpeg",
   },
   {
     name: "Darr-Ul-Shifa Clinic",
     address: "Anjuman Manzil, Govindapura Main Rd, Nagavara, Bengaluru",
     link: "https://maps.app.goo.gl/NJTQtWkiQAmuGmPj6",
     primary: false,
+    qrCode: "/qrcode/darul shifa.jpeg",
+  },
+  {
+    name: "Trinity Central Hospital",
+    address: "Swastik Circle, 139, Subedar Chatram Road, Seshadripuram, Bengaluru — 560020",
+    link: "https://maps.google.com/?q=Trinity+Central+Hospital+Seshadripuram+Bengaluru",
+    primary: false,
+    qrCode: "/qrcode/trinity central hospital.jpeg",
   },
   {
     name: "Apollo Clinic BEL Road",
@@ -75,9 +86,28 @@ export default function Locations() {
                   )}
                 </div>
               </div>
+              
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">
                 {loc.address}
               </p>
+
+              {/* QR Code Section - Desktop/Tablet Only */}
+              {loc.qrCode && (
+                <div className="hidden md:flex items-center gap-3 mb-6 p-3 rounded-2xl bg-gray-50 border border-gray-100/50">
+                  <div className="w-16 h-16 shrink-0 bg-white p-1 rounded-lg border border-gray-100 shadow-sm flex items-center justify-center">
+                    <img
+                      src={`${loc.qrCode}?v=2`}
+                      alt="Scan Map QR"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#2e8b57]">Scan Google Maps QR</div>
+                    <div className="text-gray-400 text-[10px] mt-0.5 leading-snug">Scan with your phone camera to open live navigation instantly.</div>
+                  </div>
+                </div>
+              )}
+
               <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between text-sm font-semibold text-[#0f2d5e] group-hover:text-[#2e8b57] transition-colors">
                 <span className="flex items-center gap-1.5"><Navigation className="w-4 h-4" /> Get Directions</span>
                 <span className="text-[#2e8b57]">→</span>

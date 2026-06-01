@@ -152,6 +152,10 @@ export default function Footer() {
                 <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Apollo Clinic</div>
                 <div className="text-xs mt-0.5 line-clamp-1">New BEL Road</div>
               </a>
+              <a href="https://maps.google.com/?q=Trinity+Central+Hospital+Seshadripuram+Bengaluru" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
+                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Trinity Central Hospital</div>
+                <div className="text-xs mt-0.5 line-clamp-1">Seshadripuram</div>
+              </a>
             </div>
           </div>
         </div>
