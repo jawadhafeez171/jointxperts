@@ -14,6 +14,9 @@ const images = [
   { src: "/gallery/gallery_5.webp", alt: "Physical Therapy Session" },
   { src: "/gallery/gallery_6.webp", alt: "Consultation Room" },
   { src: "/gallery/gallery_7.webp", alt: "Modern Orthopedic Equipment" },
+  { src: "/Brochures/eat_right.webp", alt: "Nutrition and Joint Health Guide" },
+  { src: "/Brochures/pes_anserine.webp", alt: "Pes Anserine Bursitis Care Guide" },
+  { src: "/Brochures/prp_injections.webp", alt: "Platelet-Rich Plasma (PRP) Therapy" },
 ];
 
 export default function GalleryPage() {
