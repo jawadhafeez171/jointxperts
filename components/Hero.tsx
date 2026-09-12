@@ -153,8 +153,8 @@ export default function Hero() {
               <span className="text-white font-semibold">
                 Dr. Syed Parveez Ahmed
               </span>
-              , our clinic specialises in advanced orthopedic care — from joint
-              replacement to spine care — with precision and compassion.
+              , our clinic specialises in advanced orthopedic care across{" "}
+              <span className="text-white/90 font-medium">Bangalore North & Central</span> — from knee & hip joint replacement to spine care — with precision and compassion.
             </motion.p>
 
             <motion.div

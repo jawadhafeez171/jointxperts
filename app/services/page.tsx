@@ -4,9 +4,18 @@ import Services from "@/components/Services";
 import LoadingScreen from "@/components/LoadingScreen";
 
 export const metadata: Metadata = {
-  title: "Services | JointXperts — Orthopedic & Joint Replacement",
+  title: "Orthopedic Services & Joint Replacement | Bangalore North & Central",
   description:
-    "Explore the full range of orthopedic services at JointXperts — joint care, spine care, hip & knee replacement, pain relief, and mobility restoration.",
+    "Explore advanced orthopedic care by Dr. Syed Parveez Ahmed — Knee & Hip Replacement, Arthroscopy, Spine Care, and Trauma treatments across Bangalore North and Bangalore Central clinics.",
+  keywords: [
+    "Knee Replacement Surgery Bangalore North",
+    "Hip Replacement Surgeon Bangalore Central",
+    "Arthroscopy Surgeon Hebbal",
+    "Spine Treatment Nagavara",
+    "Sports Medicine Doctor New BEL Road",
+    "Joint Replacement Malleshwaram",
+    "Orthopedic Trauma Surgery Seshadripuram"
+  ],
 };
 
 export default function ServicesPage() {

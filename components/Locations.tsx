@@ -6,27 +6,17 @@ import Image from "next/image";
 const locations = [
   {
     name: "Atharva Multispeciality Hospital",
+    zone: "Bangalore North",
+    area: "Hebbal",
     address: "20/2, Guddadhalli Main Rd, near Aryan tower, Kempanna Layout, Hebbal, Bengaluru",
     link: "https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8",
     primary: true,
     qrCode: "/qrcode/atharva.jpeg",
   },
   {
-    name: "Ayesha Polyclinic",
-    address: "26, KHB Colony Main Rd, Ayyappa Layout, Sultanpalya, Hebbal, Bengaluru",
-    link: "https://maps.app.goo.gl/5TfJEiDDZayVwHze9",
-    primary: false,
-    qrCode: "/qrcode/ayesha poli clinic qr code.jpeg",
-  },
-  {
-    name: "Darr-Ul-Shifa Clinic",
-    address: "Anjuman Manzil, Govindapura Main Rd, Nagavara, Bengaluru",
-    link: "https://maps.app.goo.gl/NJTQtWkiQAmuGmPj6",
-    primary: false,
-    qrCode: "/qrcode/darul shifa.jpeg",
-  },
-  {
     name: "Trinity Central Hospital",
+    zone: "Bangalore Central",
+    area: "Seshadripuram / Malleshwaram",
     address: "Swastik Circle, 139, Subedar Chatram Road, Seshadripuram, Bengaluru — 560020",
     link: "https://maps.google.com/?q=Trinity+Central+Hospital+Seshadripuram+Bengaluru",
     primary: false,
@@ -34,9 +24,29 @@ const locations = [
   },
   {
     name: "Apollo Clinic BEL Road",
+    zone: "Bangalore North",
+    area: "New BEL Road / RMV",
     address: "No.1, Vaccum House, New BEL Road, RMV 2nd Stage, Chikkamaranahalli, Bengaluru",
     link: "https://maps.app.goo.gl/zyJwywMvVKEE8E6e7",
     primary: false,
+  },
+  {
+    name: "Darr-Ul-Shifa Clinic",
+    zone: "Bangalore North",
+    area: "Nagavara / Manyata",
+    address: "Anjuman Manzil, Govindapura Main Rd, Nagavara, Bengaluru",
+    link: "https://maps.app.goo.gl/NJTQtWkiQAmuGmPj6",
+    primary: false,
+    qrCode: "/qrcode/darul shifa.jpeg",
+  },
+  {
+    name: "Ayesha Polyclinic",
+    zone: "Bangalore North",
+    area: "Sultanpalya / RT Nagar",
+    address: "26, KHB Colony Main Rd, Ayyappa Layout, Sultanpalya, Hebbal, Bengaluru",
+    link: "https://maps.app.goo.gl/5TfJEiDDZayVwHze9",
+    primary: false,
+    qrCode: "/qrcode/ayesha poli clinic qr code.jpeg",
   },
 ];
 
@@ -54,7 +64,7 @@ export default function Locations() {
             Our <span className="text-[#2e8b57]">Locations</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Dr. Syed Parveez Ahmed is available for consultation at multiple convenient locations across Bengaluru.
+            Dr. Syed Parveez Ahmed is available for consultation at trusted hospitals and clinics across <strong>Bangalore North</strong> (Hebbal, Nagavara, New BEL Road, RT Nagar) and <strong>Bangalore Central</strong> (Seshadripuram, Malleshwaram).
           </p>
         </div>
 
@@ -79,11 +89,19 @@ export default function Locations() {
                 </div>
                 <div>
                   <h3 className="text-[#0f2d5e] font-bold text-lg leading-tight group-hover:text-[#2e8b57] transition-colors">{loc.name}</h3>
-                  {loc.primary && (
-                    <span className="inline-block mt-1.5 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#2e8b57] text-white">
-                      Primary Clinic
+                  <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                    <span className="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-[#0f2d5e] border border-blue-100">
+                      {loc.zone}
                     </span>
-                  )}
+                    <span className="inline-block px-2 py-0.5 rounded text-[10px] font-semibold text-gray-600 bg-gray-100">
+                      {loc.area}
+                    </span>
+                    {loc.primary && (
+                      <span className="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#2e8b57] text-white">
+                        Primary Clinic
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
               
