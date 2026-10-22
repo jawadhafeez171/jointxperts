@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
+import ConditionBookingCTA from "./ConditionBookingCTA";
 
 interface Props {
   params: Promise<{ category: string; condition: string }>;
@@ -15,11 +16,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = conditionCategories.find((c) => c.slug === categorySlug);
   const condition = category?.conditions.find((c) => c.slug === conditionSlug);
   
-  if (!condition) return { title: "Condition Not Found" };
+  if (!condition) return { title: "Condition Not Found | JointXperts" };
   
+  const canonicalUrl = `https://www.jointxperts.in/conditions/${category?.slug || categorySlug}/${condition.slug}`;
+
+  const pageTitle = `${condition.title} Treatment in Bangalore & Bengaluru | JointXperts`;
+  const pageDesc = `${condition.shortDescription} Expert orthopedic diagnosis and care by Dr. Syed Parveez Ahmed in Bangalore North & Central Bengaluru.`;
+
   return {
-    title: `${condition.title} | JointXperts`,
-    description: condition.shortDescription,
+    title: pageTitle,
+    description: pageDesc,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: pageTitle,
+      description: pageDesc,
+      url: canonicalUrl,
+      siteName: "JointXperts",
+      images: [
+        {
+          url: condition.image || "/photo1.webp",
+          width: 1200,
+          height: 630,
+          alt: condition.title,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDesc,
+      images: [condition.image || "/photo1.webp"],
+    },
   };
 }
 
@@ -166,13 +197,7 @@ export default async function ConditionPage({ params }: Props) {
             <p className="text-white/80 mb-8 max-w-xl mx-auto">
               Get an expert diagnosis and a personalized treatment plan from Dr. Ahmed.
             </p>
-            <Link 
-              href={`/?booking=true`} 
-              scroll={false}
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#2e8b57] text-white font-bold hover:bg-[#1f6b3d] transition-all shadow-lg hover:shadow-green-900/30"
-            >
-              Book a Consultation
-            </Link>
+            <ConditionBookingCTA conditionTitle={condition.title} />
           </div>
           
         </div>

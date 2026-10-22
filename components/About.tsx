@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { useBooking } from "@/context/BookingContext";
 import { motion, useInView } from "framer-motion";
 import { CheckCircle2, GraduationCap, Trophy, Stethoscope, ArrowRight } from "lucide-react";
 
@@ -29,6 +30,7 @@ const highlights = [
 ];
 
 export default function About() {
+  const { openBooking } = useBooking();
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
@@ -152,14 +154,14 @@ export default function About() {
 
             {/* CTA row */}
             <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="?booking=true"
-                scroll={false}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0f2d5e] text-white font-semibold hover:bg-[#1a4a8a] transition-all duration-300 hover:shadow-xl hover:shadow-[#0f2d5e]/20 hover:-translate-y-0.5"
+              <button
+                type="button"
+                onClick={() => openBooking("General Consultation")}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0f2d5e] text-white font-semibold hover:bg-[#1a4a8a] transition-all duration-300 hover:shadow-xl hover:shadow-[#0f2d5e]/20 hover:-translate-y-0.5 cursor-pointer"
               >
                 Book a Consultation
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </button>
               <a
                 href="/about"
                 className="text-[#0f2d5e] font-semibold text-sm hover:text-[#2e8b57] transition-colors duration-200 underline-offset-4 hover:underline"

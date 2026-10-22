@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Award, Users } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useBooking } from "@/context/BookingContext";
 
 const stats = [
   { icon: Users, value: "5000+", label: "Patients Treated" },
@@ -40,6 +41,7 @@ const slideRight = {
 };
 
 export default function Hero() {
+  const { openBooking } = useBooking();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -154,7 +156,7 @@ export default function Hero() {
                 Dr. Syed Parveez Ahmed
               </span>
               , our clinic specialises in advanced orthopedic care across{" "}
-              <span className="text-white/90 font-medium">Bangalore North & Central</span> — from knee & hip joint replacement to spine care — with precision and compassion.
+              <span className="text-white/90 font-medium">Bangalore North & Central Bengaluru</span> — from knee & hip joint replacement to spine care — with precision and compassion.
             </motion.p>
 
             <motion.div
@@ -176,14 +178,14 @@ export default function Hero() {
               custom={0.55}
               className="flex flex-wrap gap-4"
             >
-              <Link
-                href="?booking=true"
-                scroll={false}
-                className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#2e8b57] text-white font-semibold text-base hover:bg-[#1f6b3d] transition-all duration-300 hover:shadow-2xl hover:shadow-green-900/40 hover:-translate-y-0.5"
+              <button
+                type="button"
+                onClick={() => openBooking("General Consultation")}
+                className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#2e8b57] text-white font-semibold text-base hover:bg-[#1f6b3d] transition-all duration-300 hover:shadow-2xl hover:shadow-green-900/40 hover:-translate-y-0.5 cursor-pointer"
               >
                 Book Appointment
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </button>
               <a
                 href="/services"
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all duration-300"

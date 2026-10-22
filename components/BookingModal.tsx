@@ -4,15 +4,22 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { X, Send, CheckCircle2, Phone, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
+import { useBooking } from "@/context/BookingContext";
 
 export default function BookingModal() {
+  const { isOpen, concern, closeBooking } = useBooking();
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const isOpen = searchParams.get("booking") === "true";
 
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", concern: "" });
+
+  useEffect(() => {
+    if (concern) {
+      setForm((f) => ({ ...f, concern }));
+    }
+  }, [concern]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
@@ -22,7 +29,11 @@ export default function BookingModal() {
   if (!isOpen) return null;
 
   function handleClose() {
-    router.push(pathname, { scroll: false });
+    closeBooking();
+    // If URL had ?booking=true, remove query string cleanly
+    if (searchParams?.get("booking") === "true") {
+      router.replace(pathname, { scroll: false });
+    }
     setTimeout(() => {
       setSubmitted(false);
       setForm({ name: "", phone: "", concern: "" });
@@ -46,9 +57,7 @@ export default function BookingModal() {
       {/* modal card */}
       <div className="relative w-full sm:max-w-3xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col sm:flex-row max-h-[92vh] animate-in fade-in slide-in-from-bottom sm:zoom-in-95 duration-200">
 
-        {/* ── Image panel ──────────────────────────────────────────
-            Mobile: fixed-height banner at the top (h-44)
-            Desktop: side column (sm:w-[42%] full height)          */}
+        {/* ── Image panel ────────────────────────────────────────── */}
         <div className="relative h-36 sm:h-auto sm:w-[42%] shrink-0">
           <Image
             src="/consult.webp"
@@ -58,7 +67,7 @@ export default function BookingModal() {
             sizes="(max-width: 640px) 100vw, 42vw"
             priority
           />
-          {/* gradient — bottom-heavy on mobile, left-heavy on desktop */}
+          {/* gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1e3f]/80 via-transparent to-transparent" />
 
           {/* mobile: title overlay on image */}
@@ -83,7 +92,7 @@ export default function BookingModal() {
             </div>
           </div>
 
-          {/* close button — overlaid on image, always visible */}
+          {/* close button */}
           <button
             onClick={handleClose}
             className="absolute top-3 right-3 p-1.5 rounded-full bg-white/20 backdrop-blur-md text-white hover:bg-white/40 transition-colors"
@@ -96,7 +105,7 @@ export default function BookingModal() {
         {/* ── Form panel ───────────────────────────────────────── */}
         <div className="flex flex-col flex-1 min-h-0 overflow-y-auto">
 
-          {/* Header (desktop only — mobile uses image overlay) */}
+          {/* Header */}
           <div className="hidden sm:flex items-center justify-between px-6 py-4 border-b border-gray-100 shrink-0">
             <div>
               <h2 className="text-xl font-bold text-[#0f2d5e]">Book Consultation</h2>
@@ -166,16 +175,15 @@ export default function BookingModal() {
                     <option>Knee Replacement</option>
                     <option>Hip Replacement</option>
                     <option>Spine Care / Back Pain</option>
-                    <option>Sports Injury</option>
+                    <option>Sports Injury / Arthroscopy</option>
+                    <option>Fracture & Trauma</option>
                     <option>General Consultation</option>
                   </select>
                 </div>
 
-
-
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#0f2d5e] text-white font-semibold hover:bg-[#1a4a8a] transition-all hover:shadow-xl group text-sm"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#0f2d5e] text-white font-semibold hover:bg-[#1a4a8a] transition-all hover:shadow-xl group text-sm cursor-pointer"
                 >
                   Request Appointment
                   <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { CalendarCheck, Stethoscope, HeartPulse } from "lucide-react";
+import { useBooking } from "@/context/BookingContext";
 
 const steps = [
   {
@@ -30,6 +31,7 @@ const steps = [
 ];
 
 export default function HowItWorks() {
+  const { openBooking } = useBooking();
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-80px" });
 
@@ -107,13 +109,13 @@ export default function HowItWorks() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.58 }}
         >
-          <Link
-            href="?booking=true"
-            scroll={false}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#2e8b57] text-white font-semibold hover:bg-[#1f6b3d] transition-all duration-300 hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5"
+          <button
+            type="button"
+            onClick={() => openBooking("General Consultation")}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#2e8b57] text-white font-semibold hover:bg-[#1f6b3d] transition-all duration-300 hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5 cursor-pointer"
           >
             Book Your First Appointment
-          </Link>
+          </button>
         </motion.div>
       </div>
     </section>

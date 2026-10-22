@@ -5,6 +5,41 @@ import HowItWorks from "@/components/HowItWorks";
 import FAQ from "@/components/FAQ";
 import Locations from "@/components/Locations";
 import Link from "next/link";
+import HomeBookingCTA from "@/components/HomeBookingCTA";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore & Bengaluru",
+  description:
+    "Leading orthopedic & joint replacement care by Dr. Syed Parveez Ahmed across Bangalore North & Central Bengaluru. Expert knee, hip, spine, and sports injury treatments. Clinics in Hebbal, Nagavara, New BEL Road, Seshadripuram & Malleshwaram.",
+  alternates: {
+    canonical: "https://www.jointxperts.in",
+  },
+  openGraph: {
+    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore & Bengaluru",
+    description:
+      "Leading orthopedic & joint replacement care by Dr. Syed Parveez Ahmed across Bangalore North & Central Bengaluru. Expert knee, hip, spine, and sports injury treatments.",
+    url: "https://www.jointxperts.in",
+    siteName: "JointXperts",
+    images: [
+      {
+        url: "/photo1.webp",
+        width: 1200,
+        height: 630,
+        alt: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon Bangalore & Bengaluru",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore & Bengaluru",
+    description:
+      "Expert orthopedic care in Bangalore North & Central Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee, hip, spine & sports injuries.",
+    images: ["/photo1.webp"],
+  },
+};
 
 export default function Home() {
   return (
@@ -27,19 +62,13 @@ export default function Home() {
               Schedule a consultation with Dr. Syed Parveez Ahmed and start your journey to pain-free living.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
+              <HomeBookingCTA />
               <Link
-                href="?booking=true"
-                scroll={false}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#2e8b57] text-white font-semibold text-base hover:bg-[#1f6b3d] transition-all duration-300 hover:shadow-2xl hover:shadow-green-900/40"
-              >
-                Book Appointment
-              </Link>
-              <a
                 href="/about"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all duration-300"
               >
                 Meet Dr. Ahmed
-              </a>
+              </Link>
             </div>
           </div>
         </div>

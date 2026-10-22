@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { conditionCategories } from "@/data/conditions";
+import { useBooking } from "@/context/BookingContext";
 
 const navLinks = [
   { href: "/about", label: "About" },
@@ -28,6 +29,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const { openBooking } = useBooking();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -130,13 +132,13 @@ export default function Navbar() {
             <Phone className="w-4 h-4" />
             Call Now
           </a>
-          <Link
-            href="?booking=true"
-            scroll={false}
-            className="px-5 py-2.5 rounded-full bg-[#2e8b57] text-white text-sm font-semibold hover:bg-[#1f6b3d] transition-all duration-200 hover:shadow-lg hover:shadow-green-900/30"
+          <button
+            type="button"
+            onClick={() => openBooking("General Consultation")}
+            className="px-5 py-2.5 rounded-full bg-[#2e8b57] text-white text-sm font-semibold hover:bg-[#1f6b3d] transition-all duration-200 hover:shadow-lg hover:shadow-green-900/30 cursor-pointer"
           >
             Book Appointment
-          </Link>
+          </button>
         </div>
 
         {/* Mobile toggle */}
@@ -203,14 +205,16 @@ export default function Navbar() {
     </Link>
   )
 ))}
-          <Link
-            href="?booking=true"
-            scroll={false}
-            onClick={() => setOpen(false)}
-            className="mt-4 px-5 py-3 rounded-full bg-[#2e8b57] text-white text-center font-semibold hover:bg-[#1f6b3d] transition-colors"
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              openBooking("General Consultation");
+            }}
+            className="mt-4 px-5 py-3 rounded-full bg-[#2e8b57] text-white text-center font-semibold hover:bg-[#1f6b3d] transition-colors cursor-pointer w-full"
           >
             Book Appointment
-          </Link>
+          </button>
         </div>
       </div>
     </header>

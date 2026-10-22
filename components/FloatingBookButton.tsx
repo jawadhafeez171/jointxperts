@@ -3,10 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useBooking } from "@/context/BookingContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
 export default function FloatingBookButton() {
+  const { openBooking } = useBooking();
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -85,10 +87,10 @@ export default function FloatingBookButton() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <Link
-          href="?booking=true"
-          scroll={false}
-          className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-xl shadow-blue-900/20 hover:shadow-blue-900/40 border-2 border-white transition-all duration-300 group bg-white"
+        <button
+          type="button"
+          onClick={() => openBooking("General Consultation")}
+          className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-xl shadow-blue-900/20 hover:shadow-blue-900/40 border-2 border-white transition-all duration-300 group bg-white cursor-pointer"
           title="Book Consultation"
         >
           <Image
@@ -97,7 +99,7 @@ export default function FloatingBookButton() {
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-110"
           />
-        </Link>
+        </button>
       </motion.div>
     </div>
   );

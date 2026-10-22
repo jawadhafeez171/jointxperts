@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
+import BlogBookingCTA from "./BlogBookingCTA";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -12,10 +13,40 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const blog = blogs.find((b) => b.slug === slug);
-  if (!blog) return { title: "Blog Not Found" };
+  if (!blog) return { title: "Blog Not Found | JointXperts" };
+
+  const canonicalUrl = `https://www.jointxperts.in/blog/${blog.slug}`;
+
+  const pageTitle = `${blog.title} | JointXperts Blog Bangalore & Bengaluru`;
+
   return {
-    title: `${blog.title} | JointXperts Blog`,
+    title: pageTitle,
     description: blog.excerpt,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: pageTitle,
+      description: blog.excerpt,
+      url: canonicalUrl,
+      siteName: "JointXperts",
+      images: [
+        {
+          url: blog.image || "/photo1.webp",
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+      type: "article",
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: blog.excerpt,
+      images: [blog.image || "/photo1.webp"],
+    },
   };
 }
 
@@ -87,7 +118,6 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Content Area */}
       <div className="max-w-4xl mx-auto px-6 lg:px-8 -mt-10 relative z-20">
         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
-          {/* We use prose for nice typographic defaults on raw HTML */}
           <div 
             className="text-gray-600 text-lg leading-relaxed 
               [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:text-[#0f2d5e] [&>h2]:mt-12 [&>h2]:mb-6
@@ -106,13 +136,7 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="text-gray-600 mb-8 max-w-xl mx-auto">
             Don't let joint pain hold you back. Schedule a consultation with Dr. Ahmed to discuss your treatment options.
           </p>
-          <Link 
-            href="?booking=true" 
-            scroll={false}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#2e8b57] text-white font-semibold hover:bg-[#1f6b3d] transition-all hover:shadow-lg hover:shadow-green-900/20"
-          >
-            Book a Consultation Now
-          </Link>
+          <BlogBookingCTA />
         </div>
       </div>
     </article>

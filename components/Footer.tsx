@@ -1,8 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { useBooking } from "@/context/BookingContext";
 
-const links: Record<string, { label: string; href: string }[]> = {
+interface FooterLink {
+  label: string;
+  href: string;
+  isBooking?: boolean;
+}
+
+const links: Record<string, FooterLink[]> = {
+  Treatments: [
+    { label: "Knee Replacement", href: "/treatments/knee-replacement-surgery-bangalore" },
+    { label: "Hip Replacement", href: "/treatments/hip-replacement-surgery-bangalore" },
+    { label: "Arthroscopy & Sports", href: "/treatments/arthroscopy-surgery-bangalore" },
+    { label: "Spine Care", href: "/treatments/spine-care-treatment-bangalore" },
+    { label: "All Treatments", href: "/treatments" },
+  ],
   Conditions: [
     { label: "Shoulder Issues", href: "/conditions/shoulder" },
     { label: "Knee Problems", href: "/conditions/knee" },
@@ -12,9 +28,8 @@ const links: Record<string, { label: string; href: string }[]> = {
   ],
   "Quick Links": [
     { label: "About Dr. Ahmed", href: "/about" },
-    { label: "Why JointXperts", href: "/about" },
     { label: "Patient Testimonials", href: "/testimonials" },
-    { label: "Book Appointment", href: "?booking=true" },
+    { label: "Book Appointment", href: "", isBooking: true },
     { label: "Orthopedic Blog", href: "/blog" },
     { label: "Contact Us", href: "/contact" },
   ],
@@ -62,6 +77,8 @@ const socials = [
 ];
 
 export default function Footer() {
+  const { openBooking } = useBooking();
+
   return (
     <footer className="bg-[#091d3d] text-white">
       {/* Top wave */}
@@ -72,14 +89,14 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <Link href="/" className="block relative w-48 h-14 mb-5 bg-white rounded-xl p-2">
               <Image src="/logo.webp" alt="JointXperts" fill className="object-contain p-1" />
             </Link>
-            <p className="text-white/50 text-sm leading-relaxed mb-6">
-              Expert care for every joint. Led by Dr. Syed Parveez Ahmed, MBBS MS(Ortho) FRGUHS(Arthroplasty), we are committed to restoring your mobility and quality of life.
+            <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-sm">
+              Expert care for every joint. Led by Dr. Syed Parveez Ahmed, MBBS MS(Ortho) FRGUHS(Arthroplasty), we are committed to restoring your mobility and quality of life across Bangalore North & Central Bengaluru.
             </p>
             <div className="flex gap-3">
               {socials.map(({ svg, href, label }) => (
@@ -102,66 +119,74 @@ export default function Footer() {
               <ul className="space-y-3">
                 {items.map((item) => (
                   <li key={item.label}>
-                    <a href={item.href} className="text-white/50 text-sm hover:text-white transition-colors duration-200">
-                      {item.label}
-                    </a>
+                    {item.isBooking ? (
+                      <button
+                        type="button"
+                        onClick={() => openBooking("General Consultation")}
+                        className="text-white/50 text-sm hover:text-white transition-colors duration-200 cursor-pointer text-left"
+                      >
+                        {item.label}
+                      </button>
+                    ) : (
+                      <Link href={item.href} className="text-white/50 text-sm hover:text-white transition-colors duration-200">
+                        {item.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+        </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest text-[#3aad6e] mb-5">Primary Clinic</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-white/50 text-sm">
-                <MapPin className="w-4 h-4 text-[#3aad6e] mt-0.5 flex-shrink-0" />
-                <a 
-                  href="https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-white transition-colors"
-                >
-                  Atharva Multispeciality Hospital<br />
-                  20/2, Guddadhalli Main Rd, near Aryan tower,<br />
-                  Kempanna Layout, Hebbal, Bengaluru
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-white/50 text-sm">
-                <Phone className="w-4 h-4 text-[#3aad6e] flex-shrink-0" />
-                <a href="tel:+918867270633" className="hover:text-white transition-colors">+91 88672 70633</a>
-              </li>
-              <li className="flex items-center gap-3 text-white/50 text-sm">
-                <Mail className="w-4 h-4 text-[#3aad6e] flex-shrink-0" />
-                <a href="mailto:info@jointxperts.in" className="hover:text-white transition-colors">info@jointxperts.in</a>
-              </li>
-            </ul>
+        {/* Primary Clinic & Visiting Locations */}
+        <div className="mt-12 pt-8 border-t border-white/10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-2">
+            <h4 className="font-bold text-sm uppercase tracking-widest text-[#3aad6e] mb-3">Primary Clinic</h4>
+            <div className="flex items-start gap-3 text-white/70 text-xs">
+              <MapPin className="w-4 h-4 text-[#3aad6e] mt-0.5 flex-shrink-0" />
+              <a 
+                href="https://maps.app.goo.gl/yYqi7YNaccBzvqLJ8" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-white transition-colors"
+              >
+                Atharva Multispeciality Hospital, 20/2, Guddadhalli Main Rd, Kempanna Layout, Hebbal, Bengaluru
+              </a>
+            </div>
+            <div className="flex items-center gap-6 mt-3 text-xs text-white/60">
+              <span className="flex items-center gap-1.5">
+                <Phone className="w-3.5 h-3.5 text-[#3aad6e]" />
+                <a href="tel:+918867270633" className="hover:text-white">+91 88672 70633</a>
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Mail className="w-3.5 h-3.5 text-[#3aad6e]" />
+                <a href="mailto:info@jointxperts.in" className="hover:text-white">info@jointxperts.in</a>
+              </span>
+            </div>
+          </div>
 
-            <h4 className="font-bold text-sm uppercase tracking-widest text-[#3aad6e] mb-4 mt-8">Also Visiting At</h4>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-              <a href="https://maps.app.goo.gl/5TfJEiDDZayVwHze9" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
-                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Ayesha Polyclinic</div>
-                <div className="text-xs mt-0.5 line-clamp-1">Sultanpalya</div>
+          <div className="lg:col-span-2">
+            <h4 className="font-bold text-sm uppercase tracking-widest text-[#3aad6e] mb-3">Visiting Hospitals</h4>
+            <div className="grid grid-cols-2 gap-3 text-xs text-white/50">
+              <a href="https://maps.app.goo.gl/zyJwywMvVKEE8E6e7" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                <span className="font-medium text-white/80 block">Apollo Clinic</span> New BEL Road
               </a>
-              <a href="https://maps.app.goo.gl/NJTQtWkiQAmuGmPj6" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
-                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Darr-Ul-Shifa Clinic</div>
-                <div className="text-xs mt-0.5 line-clamp-1">Nagavara</div>
+              <a href="https://maps.google.com/?q=Trinity+Central+Hospital+Seshadripuram+Bengaluru" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                <span className="font-medium text-white/80 block">Trinity Central Hospital</span> Seshadripuram
               </a>
-              <a href="https://maps.app.goo.gl/zyJwywMvVKEE8E6e7" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
-                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Apollo Clinic</div>
-                <div className="text-xs mt-0.5 line-clamp-1">New BEL Road</div>
+              <a href="https://maps.app.goo.gl/NJTQtWkiQAmuGmPj6" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                <span className="font-medium text-white/80 block">Darr-Ul-Shifa Clinic</span> Nagavara
               </a>
-              <a href="https://maps.google.com/?q=Trinity+Central+Hospital+Seshadripuram+Bengaluru" target="_blank" rel="noopener noreferrer" className="block text-white/50 hover:text-white transition-colors group">
-                <div className="text-white/80 group-hover:text-white transition-colors text-sm font-medium line-clamp-1">Trinity Central Hospital</div>
-                <div className="text-xs mt-0.5 line-clamp-1">Seshadripuram</div>
+              <a href="https://maps.app.goo.gl/5TfJEiDDZayVwHze9" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                <span className="font-medium text-white/80 block">Ayesha Polyclinic</span> Sultanpalya
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/30 text-xs">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/30 text-xs">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-left">
             <span>© {new Date().getFullYear()} JointXperts. All rights reserved.</span>
             <a 
@@ -170,12 +195,12 @@ export default function Footer() {
               rel="noopener noreferrer" 
               className="text-[#3aad6e] font-semibold hover:text-[#42c27c] transition-colors inline-flex items-center gap-1 mt-1 sm:mt-0"
             >
-              <span className="text-yellow-400">★</span> Share your experience / Review us on Google
+              <span className="text-yellow-400">★</span> 5.0 Rated on Google Reviews
             </a>
           </div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white/60 transition-colors">Terms of Service</a>
+            <Link href="/about" className="hover:text-white/60 transition-colors">About Us</Link>
+            <Link href="/contact" className="hover:text-white/60 transition-colors">Contact</Link>
           </div>
         </div>
       </div>

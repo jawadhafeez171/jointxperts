@@ -5,8 +5,33 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Orthopedic Insights & Blog | JointXperts",
-  description: "Read the latest insights on joint care, sports injuries, and orthopedic treatments from Dr. Syed Parveez Ahmed.",
+  title: "Orthopedic Insights & Joint Health Blog | Bangalore & Bengaluru | JointXperts",
+  description: "Read the latest clinical insights on joint care, sports injury recovery, arthritis, and orthopedic treatments from Dr. Syed Parveez Ahmed in Bangalore & Bengaluru.",
+  alternates: {
+    canonical: "https://www.jointxperts.in/blog",
+  },
+  openGraph: {
+    title: "Orthopedic Insights & Joint Health Blog | Bangalore & Bengaluru | JointXperts",
+    description: "Read the latest clinical insights on joint care, sports injury recovery, arthritis, and orthopedic treatments from Dr. Syed Parveez Ahmed in Bangalore & Bengaluru.",
+    url: "https://www.jointxperts.in/blog",
+    siteName: "JointXperts",
+    images: [
+      {
+        url: "/photo1.webp",
+        width: 1200,
+        height: 630,
+        alt: "JointXperts Blog Bangalore & Bengaluru",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Orthopedic Insights & Joint Health Blog | Bangalore & Bengaluru | JointXperts",
+    description: "Read the latest clinical insights on joint care and orthopedic treatments in Bangalore & Bengaluru.",
+    images: ["/photo1.webp"],
+  },
 };
 
 export default function BlogPage() {

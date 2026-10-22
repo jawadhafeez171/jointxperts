@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { conditionCategories } from "@/data/conditions";
 import { blogs } from "@/data/blogs";
+import { treatments } from "@/data/treatments";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jointxperts.in";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.jointxperts.in";
   const currentDate = new Date();
 
   // Core static pages
@@ -22,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/services`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/treatments`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.9,
@@ -51,6 +58,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
   ];
+
+  // Treatment procedure pages (/treatments/[slug])
+  const treatmentPages: MetadataRoute.Sitemap = treatments.map((treatment) => ({
+    url: `${baseUrl}/treatments/${treatment.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
 
   // Condition category pages (/conditions/[category])
   const categoryPages: MetadataRoute.Sitemap = conditionCategories.map((category) => ({
@@ -88,5 +103,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticPages, ...categoryPages, ...conditionPages, ...blogPages];
+  return [...staticPages, ...treatmentPages, ...categoryPages, ...conditionPages, ...blogPages];
 }

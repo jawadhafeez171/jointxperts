@@ -12,11 +12,41 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category: categorySlug } = await params;
   const category = conditionCategories.find((c) => c.slug === categorySlug);
-  if (!category) return { title: "Category Not Found" };
+  if (!category) return { title: "Category Not Found | JointXperts" };
   
+  const canonicalUrl = `https://www.jointxperts.in/conditions/${category.slug}`;
+
+  const pageTitle = `${category.title} Conditions & Orthopedic Care in Bangalore & Bengaluru | JointXperts`;
+  const pageDesc = `${category.description} Consult Dr. Syed Parveez Ahmed across Bangalore North & Central Bengaluru clinics.`;
+
   return {
-    title: `${category.title} Conditions & Treatments | JointXperts`,
-    description: category.description,
+    title: pageTitle,
+    description: pageDesc,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: pageTitle,
+      description: pageDesc,
+      url: canonicalUrl,
+      siteName: "JointXperts",
+      images: [
+        {
+          url: "/photo1.webp",
+          width: 1200,
+          height: 630,
+          alt: category.title,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDesc,
+      images: ["/photo1.webp"],
+    },
   };
 }
 

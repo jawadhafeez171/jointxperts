@@ -7,6 +7,7 @@ import SplashScreen from "@/components/SplashScreen";
 import FloatingBookButton from "@/components/FloatingBookButton";
 import { Suspense } from "react";
 import BookingModal from "@/components/BookingModal";
+import { BookingProvider } from "@/context/BookingContext";
 import "./globals.css";
 
 const geist = Geist({
@@ -15,53 +16,10 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://jointxperts.in"),
-  title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore North & Central",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.jointxperts.in"),
+  title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore & Bengaluru",
   description:
     "Leading orthopedic & joint replacement care by Dr. Syed Parveez Ahmed across Bangalore North & Central Bengaluru. Expert knee, hip, spine, and sports injury treatments. Clinics in Hebbal, Nagavara, New BEL Road, Seshadripuram & Malleshwaram.",
-  keywords: [
-    // Bangalore North areas
-    "Orthopedic Surgeon Bangalore North",
-    "Best Orthopedic Doctor in North Bangalore",
-    "Joint Replacement Surgeon Hebbal",
-    "Orthopedic Clinic Hebbal",
-    "Knee Replacement Doctor Nagavara",
-    "Orthopedic Doctor New BEL Road",
-    "Orthopedic Doctor RMV Extension",
-    "Orthopedic Clinic RT Nagar",
-    "Orthopedic Doctor Sultanpalya",
-    "Orthopedic Specialist Sanjaynagar",
-    "Bone and Joint Doctor Mathikere",
-    "Orthopedic Surgeon Yelahanka",
-    "Orthopedic Doctor Sahakara Nagar",
-    "Orthopedic Clinic Manyata Tech Park",
-    "Spine Specialist North Bangalore",
-    "Sports Injury Doctor Hebbal",
-    "Atharva Multispeciality Hospital Hebbal",
-    "Apollo Clinic BEL Road Orthopedic",
-    "Darr-Ul-Shifa Clinic Nagavara",
-    "Ayesha Polyclinic Sultanpalya",
-    // Bangalore Central areas
-    "Orthopedic Surgeon Bangalore Central",
-    "Best Orthopedic Doctor Central Bangalore",
-    "Orthopedic Doctor Seshadripuram",
-    "Joint Replacement Surgeon Malleshwaram",
-    "Knee Replacement Doctor Seshadripuram",
-    "Trinity Central Hospital Seshadripuram",
-    "Orthopedic Clinic Swastik Circle",
-    "Orthopedic Surgeon Sadashivanagar",
-    "Orthopedic Doctor Rajajinagar",
-    "Orthopedic Specialist Kumara Park",
-    "Orthopedic Doctor Vasanth Nagar",
-    "Hip Replacement Surgeon Bangalore Central",
-    // General high-intent
-    "Dr Syed Parveez Ahmed",
-    "JointXperts Bengaluru",
-    "Orthopedic Surgeon Bengaluru",
-    "Best Orthopedician in Bangalore",
-    "ortho near me",
-    "orthopedic doctor near me"
-  ],
   icons: { icon: "/favicon.ico" },
   verification: {
     google: "eM33ov6Ql0Bx2EUNtCWJIgU1bZIwJdzNElJtm0Yj4JM",
@@ -71,20 +29,20 @@ export const metadata: Metadata = {
     "geo.placename": "Bengaluru, Karnataka, India",
     "geo.position": "13.0358;77.5970",
     "ICBM": "13.0358, 77.5970",
-    "coverage": "Bangalore North, Bangalore Central, Hebbal, Nagavara, New BEL Road, Seshadripuram, Malleshwaram, RT Nagar, Sanjaynagar, Sadashivanagar, Rajajinagar, Yelahanka",
+    "coverage": "Bangalore, Bengaluru, Bangalore North, Central Bengaluru, Hebbal, Nagavara, New BEL Road, Seshadripuram, Malleshwaram, RT Nagar, Sanjaynagar, Sadashivanagar, Rajajinagar, Yelahanka",
   },
   openGraph: {
-    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore North & Central",
+    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore & Bengaluru",
     description:
       "Expert orthopedic and joint replacement care across Bangalore North & Central Bengaluru by Dr. Syed Parveez Ahmed. Clinics in Hebbal, Nagavara, New BEL Road, Seshadripuram & Malleshwaram.",
-    url: "https://jointxperts.in",
+    url: "https://www.jointxperts.in",
     siteName: "JointXperts",
     images: [
       {
-        url: "/brochure.jpg",
+        url: "/photo1.webp",
         width: 1200,
         height: 630,
-        alt: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic & Joint Replacement Surgeon",
+        alt: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic & Joint Replacement Surgeon Bangalore & Bengaluru",
       },
     ],
     locale: "en_US",
@@ -92,10 +50,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore North & Central",
+    title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore & Bengaluru",
     description:
       "Expert orthopedic care in Bangalore North & Central Bengaluru by Dr. Syed Parveez Ahmed. Specialising in knee, hip, spine & sports injuries.",
-    images: ["/brochure.jpg"],
+    images: ["/photo1.webp"],
   },
 };
 
@@ -110,7 +68,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Physician",
-      "@id": "https://jointxperts.in/#physician",
+      "@id": "https://www.jointxperts.in/#physician",
       "name": "Dr. Syed Parveez Ahmed",
       "jobTitle": "Consultant Orthopedic & Joint Replacement Surgeon",
       "medicalSpecialty": [
@@ -120,13 +78,17 @@ const jsonLd = {
         "SpineSurgery"
       ],
       "description":
-        "Consultant Orthopedic and Joint Replacement Surgeon specializing in Knee Replacement, Hip Replacement, Arthroscopy, Spine Care, and Trauma Surgery with consultations across Bangalore North and Bangalore Central.",
-      "url": "https://jointxperts.in",
-      "image": "https://jointxperts.in/doctor.jpg",
+        "Consultant Orthopedic and Joint Replacement Surgeon specializing in Knee Replacement, Hip Replacement, Arthroscopy, Spine Care, and Trauma Surgery with consultations across Bangalore North and Central Bengaluru.",
+      "url": "https://www.jointxperts.in",
+      "image": "https://www.jointxperts.in/photo1.webp",
       "telephone": "+91 99017 38622",
       "areaServed": [
+        { "@type": "City", "name": "Bangalore" },
+        { "@type": "City", "name": "Bengaluru" },
         { "@type": "AdministrativeArea", "name": "Bangalore North" },
+        { "@type": "AdministrativeArea", "name": "Bengaluru North" },
         { "@type": "AdministrativeArea", "name": "Bangalore Central" },
+        { "@type": "AdministrativeArea", "name": "Bengaluru Central" },
         { "@type": "Place", "name": "Hebbal" },
         { "@type": "Place", "name": "Nagavara" },
         { "@type": "Place", "name": "New BEL Road" },
@@ -146,10 +108,10 @@ const jsonLd = {
     },
     {
       "@type": "MedicalOrganization",
-      "@id": "https://jointxperts.in/#organization",
+      "@id": "https://www.jointxperts.in/#organization",
       "name": "JointXperts",
-      "url": "https://jointxperts.in",
-      "logo": "https://jointxperts.in/logo.webp",
+      "url": "https://www.jointxperts.in",
+      "logo": "https://www.jointxperts.in/logo.webp",
       "department": [
         {
           "@type": "MedicalClinic",
@@ -238,14 +200,16 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <SplashScreen />
-        <Navbar />
-        <main className="flex-1 pb-20 lg:pb-0" style={{ paddingBottom: 'calc(5rem + env(safe-area-inset-bottom))' }}>{children}</main>
-        <FloatingBookButton />
-        <Footer />
-        <BottomNav />
         <Suspense fallback={null}>
-          <BookingModal />
+          <BookingProvider>
+            <SplashScreen />
+            <Navbar />
+            <main className="flex-1 pb-20 lg:pb-0" style={{ paddingBottom: 'calc(5rem + env(safe-area-inset-bottom))' }}>{children}</main>
+            <FloatingBookButton />
+            <Footer />
+            <BottomNav />
+            <BookingModal />
+          </BookingProvider>
         </Suspense>
       </body>
     </html>

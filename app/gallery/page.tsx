@@ -2,8 +2,33 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gallery | JointXperts",
-  description: "Take a look at our state-of-the-art facilities and patient success stories at JointXperts.",
+  title: "Clinical Gallery & Surgical Facilities | Bangalore & Bengaluru | JointXperts",
+  description: "View our surgical facilities, patient recovery milestones, and advanced orthopedic consultation rooms at JointXperts across Bangalore & Bengaluru.",
+  alternates: {
+    canonical: "https://www.jointxperts.in/gallery",
+  },
+  openGraph: {
+    title: "Clinical Gallery & Surgical Facilities | Bangalore & Bengaluru | JointXperts",
+    description: "View our surgical facilities, patient recovery milestones, and advanced orthopedic consultation rooms at JointXperts across Bangalore & Bengaluru.",
+    url: "https://www.jointxperts.in/gallery",
+    siteName: "JointXperts",
+    images: [
+      {
+        url: "/gallery/gallery_1.webp",
+        width: 1200,
+        height: 630,
+        alt: "JointXperts Gallery Bangalore & Bengaluru",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Clinical Gallery & Facilities | Bangalore & Bengaluru | JointXperts",
+    description: "View our orthopedic facilities and patient care at JointXperts in Bangalore & Bengaluru.",
+    images: ["/gallery/gallery_1.webp"],
+  },
 };
 
 const images = [

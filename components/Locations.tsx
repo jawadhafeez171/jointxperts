@@ -64,7 +64,7 @@ export default function Locations() {
             Our <span className="text-[#2e8b57]">Locations</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Dr. Syed Parveez Ahmed is available for consultation at trusted hospitals and clinics across <strong>Bangalore North</strong> (Hebbal, Nagavara, New BEL Road, RT Nagar) and <strong>Bangalore Central</strong> (Seshadripuram, Malleshwaram).
+            Dr. Syed Parveez Ahmed is available for consultation at trusted hospitals and clinics across <strong>Bangalore North</strong> (Hebbal, Nagavara, New BEL Road, RT Nagar) and <strong>Central Bengaluru</strong> (Seshadripuram, Malleshwaram).
           </p>
         </div>
 
