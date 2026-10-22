@@ -69,6 +69,37 @@ const nextConfig: NextConfig = {
         destination: "/treatments/ligament-injury-acl-pcl-treatment-bangalore",
         permanent: true,
       },
+      // Local SEO location alias redirects
+      {
+        source: "/orthopedic-doctor-in-hebbal",
+        destination: "/locations/hebbal",
+        permanent: true,
+      },
+      {
+        source: "/orthopedic-doctor-in-nagavara",
+        destination: "/locations/nagavara",
+        permanent: true,
+      },
+      {
+        source: "/orthopedic-doctor-in-new-bel-road",
+        destination: "/locations/new-bel-road",
+        permanent: true,
+      },
+      {
+        source: "/orthopedic-doctor-in-seshadripuram",
+        destination: "/locations/seshadripuram",
+        permanent: true,
+      },
+      {
+        source: "/orthopedic-doctor-in-rt-nagar",
+        destination: "/locations/rt-nagar",
+        permanent: true,
+      },
+      {
+        source: "/orthopedic-doctor-in-sultanpalya",
+        destination: "/locations/rt-nagar",
+        permanent: true,
+      },
     ];
   },
 };

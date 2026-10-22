@@ -234,5 +234,129 @@ export const blogs: BlogPost[] = [
     category: "Joint Care",
     gradient: "from-[#0f2d5e] to-[#1a3a6b]",
     image: "/Brochures/prp_injections.webp",
+  },
+  {
+    id: "8",
+    slug: "knee-replacement-cost-in-bangalore",
+    title: "Knee Replacement Cost in Bangalore & Bengaluru: Complete 2026 Price Breakdown",
+    excerpt: "Planning knee replacement surgery in Bangalore? Here is a transparent breakdown of implant types, hospital room packages, and cashless insurance coverage.",
+    content: `
+      <h2>Understanding Knee Replacement Surgery Costs in Bangalore</h2>
+      <p>For patients and families considering knee replacement in Bangalore and Bengaluru, cost transparency is one of the most critical factors. Total Knee Arthroplasty (TKA) is a life-transforming procedure, but final hospital bills can vary significantly based on implant engineering, hospital room selection, and insurance approval.</p>
+      
+      <h2>Estimated Price Range in Bangalore (2026)</h2>
+      <ul>
+        <li><strong>Single Knee Replacement (TKA):</strong> ₹1,50,000 to ₹2,50,000 (standard to semi-private room).</li>
+        <li><strong>Partial / Unicompartmental Knee Replacement:</strong> ₹1,25,000 to ₹1,90,000.</li>
+        <li><strong>Both Knees (Bilateral Knee Replacement):</strong> ₹2,80,000 to ₹4,50,000 (often performed during the same admission with bundled package discounts).</li>
+      </ul>
+
+      <h2>What Factors Influence the Final Package?</h2>
+      <ol>
+        <li><strong>Implant Technology & Brand:</strong> Modern knee implants utilize medical-grade cobalt-chromium alloys, titanium, or oxidized zirconium (Oxinium) paired with highly cross-linked polyethylene bearings. Premium high-flexion implants designed for deeper bending typically carry a modest premium but provide 20–25+ years of durability.</li>
+        <li><strong>Hospital Room Category:</strong> Room rent dictates nursing charges and theatre fees. Selecting a twin-sharing or semi-private room is significantly more cost-effective than a single executive deluxe suite while receiving identical surgical expertise and implant quality.</li>
+        <li><strong>Surgeon Experience & Technique:</strong> Dr. Syed Parveez Ahmed utilizes muscle-sparing subvastus approaches. Because no thigh muscles are cut, blood loss is minimal, reducing ICU stay requirements and eliminating high transfusion costs.</li>
+        <li><strong>Length of Hospital Stay:</strong> Under Dr. Ahmed's rapid recovery protocol, patients typically stay only 2 to 3 days, significantly reducing daily room charges compared to traditional 6-day stays.</li>
+      </ol>
+
+      <h2>Insurance, TPA & Cashless Hospitalization</h2>
+      <p>Knee replacement surgery is fully covered under all major private health insurance policies and corporate group mediclaim schemes in India (including Star Health, Care Health, HDFC ERGO, ICICI Lombard, Medi Assist, Paramount TPA, and Vidal Health). At our partner hospitals in Bangalore North (Hebbal, New BEL Road) and Central Bengaluru (Seshadripuram), our dedicated insurance desk facilitates pre-authorization and seamless 100% cashless claims.</p>
+    `,
+    author: "Dr. Syed Parveez Ahmed",
+    date: "August 12, 2026",
+    readTime: "6 min read",
+    category: "Joint Care",
+    gradient: "from-[#0f2d5e] to-[#2e8b57]",
+    image: "/services/service_knee_replacement.png",
+  },
+  {
+    id: "9",
+    slug: "when-is-knee-replacement-needed",
+    title: "When is Knee Replacement Really Needed? 5 Telltale Signs & Doctor's Checklist",
+    excerpt: "Struggling with severe knee pain? Discover the clinical indicators and non-surgical thresholds that determine when knee arthroplasty becomes necessary.",
+    content: `
+      <h2>The Dilemma: Is It Time for Knee Replacement?</h2>
+      <p>One of the most frequent questions patients ask Dr. Syed Parveez Ahmed is: <em>"Doctor, do I really need surgery, or can I manage with medications and exercises?"</em> The decision to undergo knee replacement is personal and clinical. While non-surgical options are always exhausted first, postponing necessary surgery when bone-on-bone friction has set in can lead to progressive joint deformities, muscle atrophy, and loss of independence.</p>
+
+      <h2>5 Definite Signs It Is Time to Consider Knee Replacement</h2>
+      <ol>
+        <li><strong>Persistent Pain That Limits Daily Activities:</strong> If you cannot walk 500 meters, climb a flight of stairs, or stand in the kitchen without debilitating knee distress, conservative measures are no longer providing sufficient joint support.</li>
+        <li><strong>Night Pain Disrupting Sleep:</strong> A hallmark of advanced Grade 3 and Grade 4 osteoarthritis is continuous, throbbing inflammatory pain that persists even while lying completely still in bed.</li>
+        <li><strong>Visible Joint Deformity:</strong> When knee cartilage wears down unevenly on the inner side, the leg develops a progressive bow-legged (varus) curvature or knock-kneed alignment. This shifts your center of gravity and accelerates wear on the opposite joint and lower back.</li>
+        <li><strong>Severe Morning Stiffness Lasting Over 30 Minutes:</strong> Degenerative cartilage loss produces profound joint stiffness, accompanied by audible grinding (crepitus) and swelling that does not respond to anti-inflammatory medicines.</li>
+        <li><strong>Exhaustion of Conservative Treatments:</strong> When weight management, hyaluronic acid viscosupplementation, unloader braces, and physical therapy fail to provide sustained relief lasting more than a few weeks.</li>
+      </ol>
+
+      <h2>The Candidate Checklist</h2>
+      <p>Before recommending knee replacement, Dr. Ahmed conducts digital standing full-length X-rays to measure mechanical alignment angles and assesses medical fitness (cardiac, diabetic, and bone density). If your cartilage is completely worn down but you are in stable health, modern subvastus joint replacement can safely restore 100% pain-free walking for the next 25 years.</p>
+    `,
+    author: "Dr. Syed Parveez Ahmed",
+    date: "August 26, 2026",
+    readTime: "5 min read",
+    category: "Joint Care",
+    gradient: "from-[#1a4a8a] to-[#0f2d5e]",
+    image: "/blogs/blog_osteoarthritis.png",
+  },
+  {
+    id: "10",
+    slug: "acl-surgery-recovery-time",
+    title: "ACL Surgery Recovery Time: Week-by-Week Rehabilitation & Return-to-Sport Guide",
+    excerpt: "Torn your ACL? Learn the exact timeline from day 1 keyhole arthroscopy through months 6–9 return to running, football, badminton, and gym workouts.",
+    content: `
+      <h2>Demystifying ACL Reconstruction Recovery</h2>
+      <p>Tearing the Anterior Cruciate Ligament (ACL) is one of the most frustrating injuries for athletes, weekend runners, and active professionals in Bengaluru. While minimally invasive keyhole arthroscopy reconstructs the torn ligament with precision anatomical autografts, the true secret to regaining athletic agility lies in structured, phased rehabilitation.</p>
+
+      <h2>Week-by-Week ACL Recovery Milestones</h2>
+      <ul>
+        <li><strong>Weeks 1 – 2 (Protection & Extension):</strong> The primary goals are controlling knee swelling, achieving full passive knee extension (0 degrees), and waking up the quadriceps muscles with straight leg raises. Patients walk using a hinged knee brace and crutches.</li>
+        <li><strong>Weeks 3 – 6 (Unassisted Walking & Range of Motion):</strong> Swelling recedes significantly. Crutches are gradually weaned off as gait normalizes. Knee bending progresses past 110 degrees, and low-resistance stationary cycling begins to lubricate the joint.</li>
+        <li><strong>Months 2 – 3 (Strength & Proprioception):</strong> Focus shifts to closed-kinetic-chain strengthening—squats, leg presses, and hamstring curls—accompanied by balance board training to rebuild neuromuscular reflexes.</li>
+        <li><strong>Months 4 – 5 (Straight-Line Running):</strong> Once quadriceps strength reaches at least 70% of the uninjured leg, outdoor jogging and interval treadmill running are introduced.</li>
+        <li><strong>Months 6 – 9 (Agility Drills & Full Sports Clearance):</strong> Cutting, pivoting, plyometric jumps, and sport-specific drills (badminton, football, cricket). Formal clearance is granted only when functional limb symmetry (LSI) exceeds 90% on objective hop tests.</li>
+      </ul>
+
+      <h2>Key Tips to Avoid Complications</h2>
+      <p>Never rush your return to pivoting sports before biological graft incorporation is complete (which takes 6–9 months). Adhere strictly to your physical therapist's guidelines and avoid twisting motions during early recovery.</p>
+    `,
+    author: "Dr. Syed Parveez Ahmed",
+    date: "September 15, 2026",
+    readTime: "6 min read",
+    category: "Sports Injuries",
+    gradient: "from-[#2e8b57] to-[#1f6b3d]",
+    image: "/blogs/blog_acl_recovery.png",
+  },
+  {
+    id: "11",
+    slug: "frozen-shoulder-treatment-without-surgery",
+    title: "Frozen Shoulder Treatment Without Surgery: Stages, Home Exercises & Non-Invasive Relief",
+    excerpt: "Can frozen shoulder heal without surgery? Understand the 3 phases of adhesive capsulitis and the non-surgical therapies that restore 100% arm mobility.",
+    content: `
+      <h2>What Exactly is Frozen Shoulder?</h2>
+      <p>Frozen shoulder (medically termed <em>adhesive capsulitis</em>) is an excruciating and frustrating condition where the connective tissue capsule surrounding the shoulder joint becomes thickened, inflamed, and severely contracted. Patients frequently complain of inability to reach behind their back, zip a dress, reach an overhead shelf, or sleep on the affected arm.</p>
+
+      <h2>The Three Distinct Phases of Frozen Shoulder</h2>
+      <ol>
+        <li><strong>Freezing Stage (2 to 9 Months):</strong> Any movement of the shoulder causes acute pain. Sleep is severely disturbed. The shoulder gradually loses range of motion.</li>
+        <li><strong>Frozen Stage (4 to 12 Months):</strong> Severe sharp pain may begin to subside into a dull ache, but the joint becomes remarkably stiff and mechanically restricted.</li>
+        <li><strong>Thawing Stage (6 to 24 Months):</strong> The tightened capsule slowly loosens, and range of motion gradually returns with consistent therapy.</li>
+      </ol>
+
+      <h2>Over 95% of Cases Are Successfully Treated Without Surgery</h2>
+      <p>Dr. Syed Parveez Ahmed specializes in non-invasive, stepped-care interventions that accelerate resolution and avoid the operating theatre:</p>
+      <ul>
+        <li><strong>Ultrasound-Guided Hydrodilatation:</strong> A highly effective, painless 15-minute outpatient procedure where sterile saline and an anti-inflammatory solution are injected under ultrasound into the shoulder capsule to stretch and break adhesions from the inside.</li>
+        <li><strong>Targeted Physical Therapy & Wand Exercises:</strong> Gentle, non-provocative passive stretches using a wand or pulley system, pendulum exercises, and finger-ladder wall walks.</li>
+        <li><strong>Suprascapular Nerve Blocks:</strong> For acute nighttime pain, temporary nerve blocks provide immediate relief to allow pain-free physical therapy.</li>
+      </ul>
+
+      <p>If you are experiencing progressive shoulder stiffness in Bangalore, early consultation ensures prompt diagnosis and avoids months of unnecessary discomfort.</p>
+    `,
+    author: "Dr. Syed Parveez Ahmed",
+    date: "October 05, 2026",
+    readTime: "5 min read",
+    category: "Shoulder Care",
+    gradient: "from-[#091d3d] to-[#0f3d2e]",
+    image: "/blogs/blog_rotator_cuff.png",
   }
 ];
+

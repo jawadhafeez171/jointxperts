@@ -3,8 +3,11 @@
 import { MapPin, Navigation } from "lucide-react";
 import Image from "next/image";
 
+import Link from "next/link";
+
 const locations = [
   {
+    slug: "hebbal",
     name: "Atharva Multispeciality Hospital",
     zone: "Bangalore North",
     area: "Hebbal",
@@ -14,8 +17,9 @@ const locations = [
     qrCode: "/qrcode/atharva.jpeg",
   },
   {
+    slug: "seshadripuram",
     name: "Trinity Central Hospital",
-    zone: "Bangalore Central",
+    zone: "Central Bengaluru",
     area: "Seshadripuram / Malleshwaram",
     address: "Swastik Circle, 139, Subedar Chatram Road, Seshadripuram, Bengaluru — 560020",
     link: "https://maps.google.com/?q=Trinity+Central+Hospital+Seshadripuram+Bengaluru",
@@ -23,6 +27,7 @@ const locations = [
     qrCode: "/qrcode/trinity central hospital.jpeg",
   },
   {
+    slug: "new-bel-road",
     name: "Apollo Clinic BEL Road",
     zone: "Bangalore North",
     area: "New BEL Road / RMV",
@@ -31,19 +36,21 @@ const locations = [
     primary: false,
   },
   {
-    name: "Darr-Ul-Shifa Clinic",
+    slug: "nagavara",
+    name: "Medstar Hospital",
     zone: "Bangalore North",
     area: "Nagavara / Manyata",
-    address: "Anjuman Manzil, Govindapura Main Rd, Nagavara, Bengaluru",
+    address: "Outer Ring Road, Near Manyata Tech Park Gate 1, Nagavara, Bengaluru",
     link: "https://maps.app.goo.gl/NJTQtWkiQAmuGmPj6",
     primary: false,
     qrCode: "/qrcode/darul shifa.jpeg",
   },
   {
-    name: "Ayesha Polyclinic",
+    slug: "rt-nagar",
+    name: "Shifa Hospital & Poly Clinic",
     zone: "Bangalore North",
     area: "Sultanpalya / RT Nagar",
-    address: "26, KHB Colony Main Rd, Ayyappa Layout, Sultanpalya, Hebbal, Bengaluru",
+    address: "Sultanpalya Main Road, RT Nagar Post, Bengaluru",
     link: "https://maps.app.goo.gl/5TfJEiDDZayVwHze9",
     primary: false,
     qrCode: "/qrcode/ayesha poli clinic qr code.jpeg",
@@ -52,7 +59,7 @@ const locations = [
 
 export default function Locations() {
   return (
-    <section className="py-20 bg-white">
+    <section id="locations" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-3 mb-4">
@@ -70,11 +77,8 @@ export default function Locations() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {locations.map((loc, i) => (
-            <a
+            <div
               key={i}
-              href={loc.link}
-              target="_blank"
-              rel="noopener noreferrer"
               className={`group flex flex-col p-6 rounded-2xl border transition-all duration-300 ${
                 loc.primary
                   ? "bg-[#f0faf5] border-[#2e8b57]/30 shadow-sm hover:shadow-md hover:border-[#2e8b57]/60"
@@ -88,7 +92,9 @@ export default function Locations() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-[#0f2d5e] font-bold text-lg leading-tight group-hover:text-[#2e8b57] transition-colors">{loc.name}</h3>
+                  <Link href={`/locations/${loc.slug}`}>
+                    <h3 className="text-[#0f2d5e] font-bold text-lg leading-tight group-hover:text-[#2e8b57] transition-colors">{loc.name}</h3>
+                  </Link>
                   <div className="flex flex-wrap items-center gap-1.5 mt-2">
                     <span className="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-[#0f2d5e] border border-blue-100">
                       {loc.zone}
@@ -126,11 +132,23 @@ export default function Locations() {
                 </div>
               )}
 
-              <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between text-sm font-semibold text-[#0f2d5e] group-hover:text-[#2e8b57] transition-colors">
-                <span className="flex items-center gap-1.5"><Navigation className="w-4 h-4" /> Get Directions</span>
-                <span className="text-[#2e8b57]">→</span>
+              <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between text-sm font-semibold">
+                <Link
+                  href={`/locations/${loc.slug}`}
+                  className="text-[#2e8b57] hover:underline flex items-center gap-1"
+                >
+                  View Area Timings →
+                </Link>
+                <a
+                  href={loc.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#0f2d5e]"
+                >
+                  <Navigation className="w-3.5 h-3.5" /> Directions
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>

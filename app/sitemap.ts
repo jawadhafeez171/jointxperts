@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { conditionCategories } from "@/data/conditions";
 import { blogs } from "@/data/blogs";
 import { treatments } from "@/data/treatments";
+import { locationsData } from "@/data/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.jointxperts.in";
@@ -103,5 +104,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticPages, ...treatmentPages, ...categoryPages, ...conditionPages, ...blogPages];
+  // Location pages (/locations and /locations/[slug])
+  const locationIndexPage: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/locations`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+  ];
+
+  const locationPages: MetadataRoute.Sitemap = locationsData.map((loc) => ({
+    url: `${baseUrl}/locations/${loc.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
+
+  return [
+    ...staticPages,
+    ...locationIndexPage,
+    ...locationPages,
+    ...treatmentPages,
+    ...categoryPages,
+    ...conditionPages,
+    ...blogPages,
+  ];
 }
