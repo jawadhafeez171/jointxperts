@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: "JointXperts | Dr. Syed Parveez Ahmed — Orthopedic Surgeon in Bangalore & Bengaluru",
   description:
     "Leading orthopedic & joint replacement care by Dr. Syed Parveez Ahmed across Bangalore North & Central Bengaluru. Expert knee, hip, spine, and sports injury treatments. Clinics in Hebbal, Nagavara, New BEL Road, Seshadripuram & Malleshwaram.",
+  applicationName: "JointXperts",
   icons: { icon: "/favicon.ico" },
   verification: {
     google: "eM33ov6Ql0Bx2EUNtCWJIgU1bZIwJdzNElJtm0Yj4JM",
@@ -66,6 +67,14 @@ export const viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.jointxperts.in/#website",
+      "name": "JointXperts",
+      "alternateName": ["Joint Xperts", "JointXperts Bangalore"],
+      "url": "https://www.jointxperts.in/",
+      "publisher": { "@id": "https://www.jointxperts.in/#organization" }
+    },
     {
       "@type": "Physician",
       "@id": "https://www.jointxperts.in/#physician",
