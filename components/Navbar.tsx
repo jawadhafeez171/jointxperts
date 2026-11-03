@@ -105,7 +105,7 @@ export default function Navbar() {
               );
             }
 
-            const active = pathname === link.href || (link.href === "/locations" && (pathname.startsWith("/locations") || pathname === "/rt-nagar"));
+            const active = pathname === link.href || (link.href === "/locations" && (pathname.startsWith("/locations") || ["/rt-nagar", "/hebbal", "/nagavara", "/new-bel-road", "/seshadripuram"].includes(pathname)));
             return (
               <Link
                 key={link.label}

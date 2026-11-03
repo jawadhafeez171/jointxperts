@@ -104,10 +104,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  // Location pages (/locations and /locations/[slug] + /rt-nagar)
+  // Location pages (/locations, dedicated routes, and /locations/[slug])
   const locationIndexPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/locations`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/hebbal`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/nagavara`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/new-bel-road`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/seshadripuram`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.9,

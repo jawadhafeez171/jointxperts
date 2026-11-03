@@ -9,16 +9,16 @@ import type { Metadata } from "next";
 import LocationBookingCTA from "@/app/locations/[slug]/LocationBookingCTA";
 
 export const metadata: Metadata = {
-  title: "Best Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed",
+  title: "Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed",
   description:
-    "Consult senior orthopedic surgeon Dr. Syed Parveez Ahmed in RT Nagar / Sultanpalya. Call +91 88672 70633 for appointments. Knee & hip replacement, joint pain, fracture care.",
+    "Consult orthopedic surgeon Dr. Syed Parveez Ahmed in RT Nagar / Sultanpalya. Call +91 88672 70633 for appointments. Knee & hip replacement, joint pain, fracture care.",
   alternates: {
     canonical: "https://www.jointxperts.in/rt-nagar",
   },
   openGraph: {
-    title: "Best Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed",
+    title: "Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed",
     description:
-      "Consult top orthopedic surgeon Dr. Syed Parveez Ahmed at Shifa Hospital Sultanpalya, RT Nagar. Call +91 88672 70633 for booking. Mon, Wed, Fri 7:30 PM - 9:00 PM.",
+      "Consult orthopedic surgeon Dr. Syed Parveez Ahmed at Shifa Hospital Sultanpalya, RT Nagar. Call +91 88672 70633 for booking. Mon, Wed, Fri 7:30 PM - 9:00 PM.",
     url: "https://www.jointxperts.in/rt-nagar",
     siteName: "JointXperts",
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: "/photo1.webp",
         width: 1200,
         height: 630,
-        alt: "Best Orthopedic Doctor in RT Nagar Bangalore - Dr. Syed Parveez Ahmed",
+        alt: "Orthopedic Doctor in RT Nagar Bangalore - Dr. Syed Parveez Ahmed",
       },
     ],
     locale: "en_US",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed",
+    title: "Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed",
     description:
-      "Consult senior orthopedic specialist Dr. Syed Parveez Ahmed in RT Nagar / Sultanpalya. Direct booking: +91 88672 70633. Knee, hip, fractures & arthritis.",
+      "Consult orthopedic specialist Dr. Syed Parveez Ahmed in RT Nagar / Sultanpalya. Direct booking: +91 88672 70633. Knee, hip, fractures & arthritis.",
     images: ["/photo1.webp"],
   },
 };
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 const clinicDetails = {
   doctorName: "Dr. Syed Parveez Ahmed",
   qualifications: "MBBS, MS (Orthopaedics), Fellow in Joint Replacement (FRGUHS)",
-  speciality: "Senior Consultant Orthopedic & Joint Replacement Surgeon",
+  speciality: "Consultant Orthopedic & Joint Replacement Surgeon",
   clinicName: "Shifa Hospital & Poly Clinic",
   area: "RT Nagar / Sultanpalya",
   zone: "Bangalore North",
@@ -108,7 +108,7 @@ const reviews = [
     author: "Mohammad Irfan",
     locality: "Sultanpalya, RT Nagar",
     rating: 5,
-    text: "Dr. Syed Parveez Ahmed is a blessing for RT Nagar residents. Being able to consult such a senior joint replacement specialist in the evening right on Sultanpalya Main Road saved us so much travel time. He treated my father's knee swelling with great care.",
+    text: "Dr. Syed Parveez Ahmed is a blessing for RT Nagar residents. Being able to consult such an experienced joint replacement specialist in the evening right on Sultanpalya Main Road saved us so much travel time. He treated my father's knee swelling with great care.",
     date: "September 2026",
   },
   {
@@ -195,7 +195,7 @@ export default function RTNagarPage() {
         "@id": `${canonicalUrl}#clinic`,
         "name": "Shifa Hospital & Poly Clinic - JointXperts RT Nagar",
         "description":
-          "Senior Orthopedic & Joint Replacement Surgeon Dr. Syed Parveez Ahmed's consultation clinic in RT Nagar / Sultanpalya, Bangalore. Knee replacement, arthritis care, fracture casting & spine management.",
+          "Consultant Orthopedic & Joint Replacement Surgeon Dr. Syed Parveez Ahmed's consultation clinic in RT Nagar / Sultanpalya, Bangalore. Knee replacement, arthritis care, fracture casting & spine management.",
         "url": canonicalUrl,
         "telephone": clinicDetails.phone,
         "medicalSpecialty": "Orthopedic Surgery",
@@ -285,11 +285,11 @@ export default function RTNagarPage() {
                 </div>
 
                 <h1 className="text-3xl lg:text-5xl font-extrabold text-[#0f2d5e] leading-tight mb-4">
-                  Best Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed
+                  Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed
                 </h1>
 
                 <p className="text-gray-600 text-base lg:text-lg leading-relaxed mb-6">
-                  Consult senior orthopedic and joint replacement surgeon <strong>Dr. Syed Parveez Ahmed</strong> [MBBS, MS (Ortho), FRGUHS] right here in RT Nagar. Evening consultations for knee osteoarthritis, hip pain, sports injuries, acute fractures, and spine care without traveling through heavy Bellary Road traffic.
+                  Consult orthopedic and joint replacement surgeon <strong>Dr. Syed Parveez Ahmed</strong> [MBBS, MS (Ortho), FRGUHS] right here in RT Nagar. Evening consultations for knee osteoarthritis, hip pain, sports injuries, acute fractures, and spine care without traveling through heavy Bellary Road traffic.
                 </p>
 
                 {/* Prominent Doctor's Booking Callout Bar */}
@@ -792,7 +792,7 @@ export default function RTNagarPage() {
             <div className="max-w-xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-3">
                 <ShieldCheck className="w-4 h-4" />
-                Senior Orthopedic Surgeon in RT Nagar
+                Orthopedic Surgeon in RT Nagar
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-2">
                 Book Your Consultation with Dr. Syed Parveez Ahmed

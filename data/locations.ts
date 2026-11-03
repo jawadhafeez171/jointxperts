@@ -41,9 +41,9 @@ export const locationsData: LocationData[] = [
     name: "Atharva Multispeciality Hospital",
     area: "Hebbal",
     zone: "Bangalore North",
-    seoH1: "Best Orthopedic Doctor in Hebbal, Bangalore North | Dr. Syed Parveez Ahmed",
+    seoH1: "Orthopedic Doctor in Hebbal, Bangalore North | Dr. Syed Parveez Ahmed",
     metaTitle: "Orthopedic Doctor in Hebbal, Bangalore North | Dr. Syed Parveez Ahmed",
-    metaDescription: "Consult top orthopedic surgeon Dr. Syed Parveez Ahmed at Atharva Hospital Hebbal. Knee & hip replacement, fracture care & arthroscopy. Mon-Sat OPD.",
+    metaDescription: "Consult orthopedic surgeon Dr. Syed Parveez Ahmed at Atharva Hospital Hebbal. Knee & hip replacement, fracture care & arthroscopy. Mon-Sat OPD.",
     address: {
       line1: "#12, 1st Main Road, Vinayakanagar",
       line2: "Hebbal",
@@ -93,7 +93,7 @@ export const locationsData: LocationData[] = [
         author: "Meenakshi Sundaram",
         locality: "Sahakarnagar",
         rating: 5,
-        text: "I consulted Dr. Ahmed for severe shoulder pain that other clinics recommended surgery for. He thoroughly evaluated my MRI and treated it with hydrodilatation and targeted exercises. Pain was gone in 3 weeks without surgery. Best orthopedic doctor in Hebbal!",
+        text: "I consulted Dr. Ahmed for severe shoulder pain that other clinics recommended surgery for. He thoroughly evaluated my MRI and treated it with hydrodilatation and targeted exercises. Pain was gone in 3 weeks without surgery. Highly recommended orthopedic doctor in Hebbal!",
         date: "August 2026"
       },
       {
@@ -112,7 +112,7 @@ export const locationsData: LocationData[] = [
     name: "Medstar Hospital",
     area: "Nagavara",
     zone: "Bangalore North",
-    seoH1: "Best Orthopedic Doctor in Nagavara & Manyata Tech Park | Dr. Syed Parveez Ahmed",
+    seoH1: "Orthopedic Doctor in Nagavara & Manyata Tech Park | Dr. Syed Parveez Ahmed",
     metaTitle: "Orthopedic Doctor in Nagavara & Manyata Tech Park | Dr. Syed Parveez Ahmed",
     metaDescription: "Consult expert orthopedic specialist Dr. Syed Parveez Ahmed at Medstar Hospital Nagavara. Spine care, sports injuries & joint pain near Manyata Tech Park.",
     address: {
@@ -169,7 +169,7 @@ export const locationsData: LocationData[] = [
         author: "Zameer Pasha",
         locality: "Thanisandra Main Road",
         rating: 5,
-        text: "Took my father for knee pain consultation. Dr. Ahmed was very patient in listening and suggested viscosupplementation injections. Great relief for my dad's arthritis. Best orthopedic specialist near Manyata.",
+        text: "Took my father for knee pain consultation. Dr. Ahmed was very patient in listening and suggested viscosupplementation injections. Great relief for my dad's arthritis. Trusted orthopedic specialist near Manyata.",
         date: "June 2026"
       }
     ],
@@ -181,9 +181,9 @@ export const locationsData: LocationData[] = [
     name: "Apollo Clinic",
     area: "New BEL Road",
     zone: "Bangalore North",
-    seoH1: "Best Orthopedic Doctor in New BEL Road & RMV 2nd Stage | Dr. Syed Parveez Ahmed",
+    seoH1: "Orthopedic Doctor in New BEL Road & RMV 2nd Stage | Dr. Syed Parveez Ahmed",
     metaTitle: "Orthopedic Doctor in New BEL Road & RMV | Dr. Syed Parveez Ahmed",
-    metaDescription: "Consult senior orthopedic surgeon Dr. Syed Parveez Ahmed at Apollo Clinic New BEL Road. Expert joint pain, arthritis & spine consultation. Tue, Thu, Sat OPD.",
+    metaDescription: "Consult orthopedic surgeon Dr. Syed Parveez Ahmed at Apollo Clinic New BEL Road. Expert joint pain, arthritis & spine consultation. Tue, Thu, Sat OPD.",
     address: {
       line1: "#82, New BEL Road, RMV 2nd Stage",
       line2: "Opp. Ramaiah Memorial Hospital junction",
@@ -224,7 +224,7 @@ export const locationsData: LocationData[] = [
         author: "Dr. Anirudh Rao",
         locality: "Sadashivanagar",
         rating: 5,
-        text: "As a physician myself, I am very discerning about who I consult for joint issues. Dr. Syed Parveez Ahmed at Apollo Clinic New BEL Road demonstrated exceptional diagnostic acumen and patient empathy for my severe knee stiffness. Truly top-tier orthopedic care.",
+        text: "As a physician myself, I am very discerning about who I consult for joint issues. Dr. Syed Parveez Ahmed at Apollo Clinic New BEL Road demonstrated exceptional diagnostic acumen and patient empathy for my severe knee stiffness. Truly exceptional orthopedic care.",
         date: "October 2026"
       },
       {
@@ -238,7 +238,7 @@ export const locationsData: LocationData[] = [
         author: "Vikram Shenoy",
         locality: "Sanjaynagar",
         rating: 5,
-        text: "Consulted Dr. Ahmed for my mother's bilateral knee arthritis. His advice was crisp and reassuring. Highly recommend him for anyone seeking senior orthopedic opinions in North Bangalore.",
+        text: "Consulted Dr. Ahmed for my mother's bilateral knee arthritis. His advice was crisp and reassuring. Highly recommend him for anyone seeking trusted orthopedic opinions in North Bangalore.",
         date: "July 2026"
       }
     ],
@@ -250,9 +250,9 @@ export const locationsData: LocationData[] = [
     name: "Trinity Central Hospital",
     area: "Seshadripuram",
     zone: "Central Bengaluru",
-    seoH1: "Best Orthopedic Doctor in Seshadripuram, Central Bengaluru | Dr. Syed Parveez Ahmed",
+    seoH1: "Orthopedic Doctor in Seshadripuram, Central Bengaluru | Dr. Syed Parveez Ahmed",
     metaTitle: "Orthopedic Doctor in Seshadripuram, Bengaluru | Dr. Syed Parveez Ahmed",
-    metaDescription: "Consult top joint replacement surgeon Dr. Syed Parveez Ahmed at Trinity Hospital Seshadripuram. Knee & hip replacement, spine care & trauma. Mon, Wed, Fri.",
+    metaDescription: "Consult joint replacement surgeon Dr. Syed Parveez Ahmed at Trinity Hospital Seshadripuram. Knee & hip replacement, spine care & trauma. Mon, Wed, Fri.",
     address: {
       line1: "#45, 2nd Main Road",
       line2: "Seshadripuram",
@@ -307,7 +307,7 @@ export const locationsData: LocationData[] = [
         author: "Sanjay Bhandari",
         locality: "Rajajinagar",
         rating: 5,
-        text: "Top orthopedic specialist in Central Bangalore. Very transparent about surgery costs and insurance approvals. Hospital staff was courteous and care was excellent.",
+        text: "Orthopedic specialist in Central Bangalore. Very transparent about surgery costs and insurance approvals. Hospital staff was courteous and care was excellent.",
         date: "July 2026"
       }
     ],
@@ -319,9 +319,9 @@ export const locationsData: LocationData[] = [
     name: "Shifa Hospital & Poly Clinic",
     area: "RT Nagar / Sultanpalya",
     zone: "Bangalore North",
-    seoH1: "Best Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed",
+    seoH1: "Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed",
     metaTitle: "Orthopedic Doctor in RT Nagar & Sultanpalya | Dr. Syed Parveez Ahmed",
-    metaDescription: "Consult senior orthopedic surgeon Dr. Syed Parveez Ahmed at Shifa Hospital Sultanpalya / RT Nagar. Joint pain, fracture care & arthritis. Mon, Wed, Fri evening OPD.",
+    metaDescription: "Consult orthopedic surgeon Dr. Syed Parveez Ahmed at Shifa Hospital Sultanpalya / RT Nagar. Joint pain, fracture care & arthritis. Mon, Wed, Fri evening OPD.",
     address: {
       line1: "Sultanpalya Main Road, RT Nagar Post",
       line2: "Opposite Darga Bus Stop",
@@ -354,7 +354,7 @@ export const locationsData: LocationData[] = [
     facilityHighlights: [
       "Convenient evening consultation hours (7:30 PM – 9:00 PM)",
       "Direct ground floor wheelchair-accessible entrance",
-      "Affordable community healthcare with senior specialist guidance",
+      "Affordable community healthcare with specialist guidance",
       "Pharmacy and basic laboratory diagnostics on premises"
     ],
     localReviews: [
@@ -362,7 +362,7 @@ export const locationsData: LocationData[] = [
         author: "Mohammad Irfan",
         locality: "Sultanpalya, RT Nagar",
         rating: 5,
-        text: "Dr. Syed Parveez Ahmed is a blessing for RT Nagar residents. Being able to consult such a senior joint replacement specialist in the evening right on Sultanpalya Main Road saved us so much travel time. He treated my father's knee swelling with great care.",
+        text: "Dr. Syed Parveez Ahmed is a blessing for RT Nagar residents. Being able to consult such an experienced joint replacement specialist in the evening right on Sultanpalya Main Road saved us so much travel time. He treated my father's knee swelling with great care.",
         date: "September 2026"
       },
       {

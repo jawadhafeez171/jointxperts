@@ -144,13 +144,13 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center justify-between mb-3">
               <h4 className="font-bold text-sm uppercase tracking-widest text-[#3aad6e]">Primary Surgical Base</h4>
-              <Link href="/locations/hebbal" className="text-xs text-[#3aad6e] hover:underline font-semibold">
+              <Link href="/hebbal" className="text-xs text-[#3aad6e] hover:underline font-semibold">
                 View Hebbal Clinic →
               </Link>
             </div>
             <div className="flex items-start gap-3 text-white/70 text-xs">
               <MapPin className="w-4 h-4 text-[#3aad6e] mt-0.5 flex-shrink-0" />
-              <Link href="/locations/hebbal" className="hover:text-white transition-colors">
+              <Link href="/hebbal" className="hover:text-white transition-colors">
                 Atharva Multispeciality Hospital, #12, 1st Main Rd, Vinayakanagar, Hebbal, Bangalore — 560024
               </Link>
             </div>
@@ -174,16 +174,16 @@ export default function Footer() {
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-3 text-xs text-white/50">
-              <Link href="/locations/new-bel-road" className="hover:text-white transition-colors">
+              <Link href="/new-bel-road" className="hover:text-white transition-colors">
                 <span className="font-medium text-white/80 block">Apollo Clinic</span> New BEL Road (Tue, Thu, Sat)
               </Link>
-              <Link href="/locations/seshadripuram" className="hover:text-white transition-colors">
+              <Link href="/seshadripuram" className="hover:text-white transition-colors">
                 <span className="font-medium text-white/80 block">Trinity Central Hospital</span> Seshadripuram (Mon, Wed, Fri)
               </Link>
-              <Link href="/locations/nagavara" className="hover:text-white transition-colors">
+              <Link href="/nagavara" className="hover:text-white transition-colors">
                 <span className="font-medium text-white/80 block">Medstar Hospital</span> Nagavara / Manyata (Mon-Sat)
               </Link>
-              <Link href="/locations/rt-nagar" className="hover:text-white transition-colors">
+              <Link href="/rt-nagar" className="hover:text-white transition-colors">
                 <span className="font-medium text-white/80 block">Shifa Hospital</span> RT Nagar / Sultanpalya (Mon, Wed, Fri)
               </Link>
             </div>
