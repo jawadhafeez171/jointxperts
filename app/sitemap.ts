@@ -104,10 +104,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  // Location pages (/locations and /locations/[slug])
+  // Location pages (/locations and /locations/[slug] + /rt-nagar)
   const locationIndexPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/locations`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/rt-nagar`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.9,

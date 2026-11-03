@@ -340,7 +340,7 @@ export const locationsData: LocationData[] = [
       "Dedicated street-level clinic parking bay with easy ground-floor entrance access, making it effortless for elderly patients and individuals on crutches.",
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.351234567890!2d77.6000!3d13.0185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16e5b6b6b6b7%3A0x6b490d16568dbfc4!2sR.T.%20Nagar%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
-    googleMapsUrl: "https://maps.app.goo.gl/dzvjfqa8Y3TXfJEK9",
+    googleMapsUrl: "https://maps.app.goo.gl/5TfJEiDDZayVwHze9",
     overview:
       "Shifa Hospital & Poly Clinic serves as a trusted community orthopedic clinic on Sultanpalya Main Road in RT Nagar. Dr. Syed Parveez Ahmed conducts convenient evening consultations for neighborhood residents, offering rapid diagnosis of acute sports sprains, fracture casting, joint injections, and ongoing arthritis care without the hassle of long hospital commutes.",
     treatmentsOffered: [

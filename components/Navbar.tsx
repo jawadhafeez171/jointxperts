@@ -19,6 +19,7 @@ const navLinks = [
       label: c.title,
     }))
   },
+  { href: "/locations", label: "Locations" },
   { href: "/blog", label: "Blog" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/gallery", label: "Gallery" },
@@ -104,7 +105,7 @@ export default function Navbar() {
               );
             }
 
-            const active = pathname === link.href;
+            const active = pathname === link.href || (link.href === "/locations" && (pathname.startsWith("/locations") || pathname === "/rt-nagar"));
             return (
               <Link
                 key={link.label}

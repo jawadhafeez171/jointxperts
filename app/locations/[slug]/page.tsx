@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { 
   MapPin, Clock, Phone, Navigation, Car, ShieldCheck, CheckCircle2, 
-  Star, ArrowLeft, Hospital, Sparkles, Building2, Compass
+  Star, ArrowLeft, Hospital, Sparkles, Building2, Compass, MessageCircle
 } from "lucide-react";
 import type { Metadata } from "next";
 import LocationBookingCTA from "./LocationBookingCTA";
@@ -178,7 +178,16 @@ export default async function LocationDetailPage({ params }: Props) {
                   className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-gray-200 bg-white text-[#0f2d5e] font-semibold text-sm hover:border-[#2e8b57] hover:text-[#2e8b57] transition-all shadow-sm"
                 >
                   <Phone className="w-4 h-4 text-[#2e8b57]" />
-                  Call Clinic: {location.phone}
+                  Call Doctor for Booking: {location.phone}
+                </a>
+                <a
+                  href={`https://wa.me/${location.phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Dr. Syed Parveez Ahmed, I would like to book an orthopedic appointment at ${location.name} (${location.area}).`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-800 font-semibold text-sm hover:bg-emerald-100 transition-all shadow-sm"
+                >
+                  <MessageCircle className="w-4 h-4 text-emerald-600" />
+                  WhatsApp Doctor
                 </a>
               </div>
             </div>
@@ -392,20 +401,48 @@ export default async function LocationDetailPage({ params }: Props) {
           </div>
 
           {/* Bottom Booking CTA */}
-          <div className="bg-gradient-to-r from-[#0f2d5e] to-[#1a4a8a] rounded-3xl p-8 lg:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-2">
+          <div className="bg-gradient-to-r from-[#0f2d5e] to-[#1a4a8a] rounded-3xl p-8 lg:p-10 text-white flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="max-w-xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-3">
                 <ShieldCheck className="w-4 h-4" />
                 Trusted Orthopedic Surgeon
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold">
+              <h3 className="text-2xl md:text-3xl font-bold mb-2">
                 Book Consultation with Dr. Syed Parveez Ahmed
               </h3>
-              <p className="text-white/80 text-sm mt-1 max-w-xl">
+              <p className="text-white/80 text-sm leading-relaxed mb-4">
                 Serving {location.area} and surrounding North & Central Bengaluru neighborhoods. Minimally invasive care, rapid recovery, and honest guidance.
               </p>
+              <div className="flex flex-wrap items-center gap-4 text-xs text-emerald-200">
+                <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg">
+                  <Clock className="w-3.5 h-3.5" />
+                  {location.timings[0]}
+                </span>
+                <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg">
+                  <Phone className="w-3.5 h-3.5" />
+                  Direct Booking: {location.phone}
+                </span>
+              </div>
             </div>
-            <LocationBookingCTA locationName={`${location.name} (${location.area})`} />
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
+              <LocationBookingCTA locationName={`${location.name} (${location.area})`} />
+              <a
+                href={`tel:${location.phone.replace(/[^0-9+]/g, "")}`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-all"
+              >
+                <Phone className="w-4 h-4 text-emerald-300" />
+                Call Doctor
+              </a>
+              <a
+                href={`https://wa.me/${location.phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(`Hello Dr. Syed Parveez Ahmed, I would like to book an orthopedic appointment at ${location.name} (${location.area}).`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all shadow-md"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
