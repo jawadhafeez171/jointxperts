@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import {
   motion,
@@ -11,15 +12,32 @@ import {
 
 const TAGLINE = "Expert Care for Every Joint";
 const DURATION_MS = 2800; // slightly longer to appreciate the logo
+const SEEN_KEY = "jx-splash-seen";
 
 export default function SplashScreen() {
-  const [visible, setVisible] = useState(true);
+  // Only play the intro when a visitor lands on the home page.
+  // Deep links (blogs, locations, conditions) open straight to their content.
+  const pathname = usePathname();
+  // Play once per browser session — skip on reloads and return visits to home.
+  const [visible, setVisible] = useState(() => {
+    if (pathname !== "/") return false;
+    try {
+      return sessionStorage.getItem(SEEN_KEY) !== "1";
+    } catch {
+      return true;
+    }
+  });
 
   // Spring-driven progress value 0 → 100
   const progress = useSpring(0, { stiffness: 28, damping: 18 });
   const barWidth = useTransform(progress, [0, 100], ["0%", "100%"]);
 
   useEffect(() => {
+    if (!visible) return;
+    try {
+      sessionStorage.setItem(SEEN_KEY, "1");
+    } catch {}
+
     // Small delay so the first paint is clean before animating
     const t0 = setTimeout(() => progress.set(100), 80);
     const t1 = setTimeout(() => setVisible(false), DURATION_MS);
@@ -27,7 +45,8 @@ export default function SplashScreen() {
       clearTimeout(t0);
       clearTimeout(t1);
     };
-  }, [progress]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once on mount
+  }, []);
 
   return (
     <AnimatePresence>
